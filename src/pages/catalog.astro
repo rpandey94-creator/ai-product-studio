@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CatalogExplorer from '../components/CatalogExplorer';
+import registry from '../data/registry.json';
+---
+<BaseLayout title="Product field" description="Explore 64 evidence-ranked AI product research candidates with explicit implementation status.">
+  <header class="page-hero shell"><p class="eyebrow">64 structured hypotheses</p><h1 class="display">The product <em>field.</em></h1><p class="lead">Filter the complete research catalog by system family and evidence status. A candidate is a reasoned product thesis, not a claim that software or customer outcomes already exist.</p></header>
+  <section class="section-tight shell"><CatalogExplorer items={registry.catalog} client:load /></section>
+</BaseLayout>
