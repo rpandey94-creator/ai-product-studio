@@ -1,36 +1,41 @@
-# AI Product Studio
+# AI Product Engineering Lab 2027
 
-A fast, dependency-free portfolio that connects AI product strategy to architecture, evaluation, risk, cost, and working evidence.
+An expandable, evidence-led lab that connects AI product discovery to architecture, implementation, evaluation, testing, deployment, and learning.
 
 ## What is included
 
-- Nine honest AI product showcases with buyer, workflow, architecture, metrics, evaluation, security, cost, MVP scope, and delivery status.
-- A working Conversation QA & AI Evaluation Console using eight synthetic support conversations.
-- A searchable 12-framework atlas with official documentation and repository links.
+- A data-driven research registry of 64 differentiated AI product candidates with filters, demand evidence, architecture, frameworks, acceptance criteria, cost, and status.
+- A 2027 opportunity map that separates direct buyer/employer evidence from strategic inference.
+- A framework and SDK atlas covering 63 technologies with official sources, license class, deployment constraints, alternatives, and point-in-time GitHub metadata.
+- A locally runnable AI Evaluation Workbench: typed Python pipeline, four deterministic evaluators, seven passing tests, and JSON/CSV/JUnit evidence.
+- Eight preserved interactive product experiments with honest simulation labels; Customer 360 is not part of the forward-looking core.
 - Three fixed-scope freelance service packages.
 - A separate link to the existing authorized enterprise experience portfolio.
 - Responsive layout, keyboard-accessible controls, SEO metadata, and Netlify security headers.
 
 ## Architecture choice
 
-The studio uses semantic HTML, modular CSS, and data-driven vanilla JavaScript. This buildless architecture was selected deliberately for the current zero-upfront-cost constraint: it has no package supply chain, no build minutes, near-zero maintenance overhead, and deploys directly to Netlify. Product and framework content lives in `data.js`; routing and interactions live in `app.js`.
+The public lab uses semantic HTML, modular CSS, and data-driven vanilla JavaScript. This buildless shell has no frontend package supply chain or build-minute requirement. `registry.js` owns product research, `atlas.js` owns technology research, and independently runnable applications live under `apps/`.
 
 Hash routes keep every product addressable on static hosting without server configuration:
 
-- `#/products/<slug>` — nine individual product case studies
-- `#/qa-console` — working evaluation demo
-- `#/frameworks` — searchable framework atlas
+- `#/catalog` — unlimited research registry
+- `#/opportunities` — evidence-backed 2027 opportunity map
+- `#/roadmap` — transparent engineering sequence
+- `#/products/<slug>` — preserved product experiments
+- `#/qa-console` — Evaluation Workbench browser layer and real pipeline evidence
+- `#/frameworks` — 63-technology framework atlas
 - `#/services` and `#/about`
 
 ## Run locally
 
-Serve this directory with any static HTTP server. For example:
+Serve this directory with any static HTTP server:
 
 ```powershell
-npx serve .
+python -m http.server 4173
 ```
 
-No API key, account, or paid service is needed. Opening `index.html` directly may work for most content, but a local server is recommended because browsers handle root-relative assets more reliably over HTTP.
+No API key, account, paid service, or card is needed. To run the first engineering application, follow `apps/evaluation-workbench/README.md`.
 
 ## Deploy to Netlify
 
@@ -43,8 +48,8 @@ No API key, account, or paid service is needed. Opening `index.html` directly ma
 
 ## Truth and privacy boundary
 
-The QA console is a fictional demonstration that uses synthetic data. Planned products are labeled `Concept / Planned`; partial implementation is labeled `Prototype`; only the usable browser-based console is labeled `Working Demo`. This repository contains no confidential employer or customer material and claims no paid-client result.
+The browser console and Python pipeline use synthetic data. The pipeline is genuine and tested; it is not described as a client deployment or model-judge system. Research candidates remain research, simulations remain simulations, and public/live claims require endpoint verification. This repository contains no confidential employer or customer material and claims no paid-client result.
 
 ## Framework verification
 
-Framework purposes, repository activity, and license labels were checked against official GitHub repositories and documentation on 21 October 2026. Commercial adopters should re-check the exact version and license terms before use, especially Dify's custom license and Phoenix's Elastic License 2.0.
+Framework purposes, repository activity, and license labels were checked against official repositories and documentation on 22 October 2026. Commercial adopters must re-check exact versions and terms. Start with `RESEARCH_METHOD.md`, `STATUS_LEDGER.md`, `FRAMEWORK_ATLAS.md`, `ROADMAP.md`, `NETLIFY_STRATEGY.md`, and `TESTING.md`.
