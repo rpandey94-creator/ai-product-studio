@@ -21,7 +21,7 @@
 - [x] Feedback, knowledge-permission, and Reliability Studio interactions tested locally
 - [x] Mobile navigation and narrow layout tested locally at 390 px without overflow
 - [x] Email, LinkedIn, GitHub, and internal links checked locally
-- [ ] Console errors checked
+- [ ] Deployed client hydration and browser console checked after CSP repair
 - [ ] Production promotion explicitly approved after Deploy Preview review
 
 The unchecked items require live GitHub/Netlify deployment and browser validation.

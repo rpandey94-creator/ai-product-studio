@@ -8,6 +8,7 @@
 - Repositioned the Evaluation Workbench as the AI Reliability & Observability Studio while preserving executable Python evidence.
 - Added personal Projects, Product Thinking, About, Contact, and Research routes plus 13 static product case routes.
 - Preserved the 64-candidate catalog, framework atlas, simulations, roadmap, and legacy application as a secondary research archive.
+- Allowed Astro's generated inline island bootstrap in the Netlify Content Security Policy so interactive React components hydrate in deployed builds.
 - Kept Netlify production unchanged pending Deploy Preview review and explicit approval.
 
 ## 2.0.0 — 2026-10-22
