@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FrameworkExplorer from '../components/FrameworkExplorer';
+import frameworks from '../data/frameworks.json';
+---
+<BaseLayout title="Framework atlas" description="A source-linked atlas of 63 AI engineering frameworks, runtimes, protocols, and infrastructure candidates.">
+  <header class="page-hero shell"><p class="eyebrow">63 source-linked records</p><h1 class="display">Framework <em>atlas.</em></h1><p class="lead">A decision surface for protocols, runtimes, evaluation, retrieval, voice, local inference, and orchestration. “Evaluated candidate” means researched—not integrated.</p></header>
+  <section class="section-tight shell"><FrameworkExplorer items={frameworks} client:load /></section>
+</BaseLayout>

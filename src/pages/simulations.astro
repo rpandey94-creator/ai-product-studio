@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import studio from '../data/studio.json';
+import experiences from '../data/experiences.json';
+
+const excluded = 'customer-360-copilot';
+const caseStudies = experiences.caseStudies as Record<string, { evidence: string }>;
+const simulations = studio.products.filter((product) => product.slug !== excluded).map((product) => ({
+  ...product,
+  experience: caseStudies[product.slug],
+}));
+---
+<BaseLayout title="Browser simulations" description="Eight clearly labeled browser simulations for exploring AI product workflows and decisions.">
+  <header class="page-hero shell"><p class="eyebrow">Eight deterministic experiences</p><h1 class="display">Product <em>simulations.</em></h1><p class="lead">These interactive browser experiences demonstrate product states, workflows, and tradeoffs with synthetic data. They are not live model integrations or production systems. The Evaluation Workbench’s Python package is documented separately as the one verified implementation.</p></header>
+  <section class="section shell"><div class="case-grid">{simulations.map((product) => <article class="case-card"><span class="tag simulation">Interactive simulation</span><h3>{product.title}</h3><p>{product.short}</p><p>{product.experience?.evidence}</p><div class="case-footer"><span class="eyebrow">Synthetic / browser-only</span><a class="button" href={`/legacy/#/products/${product.slug}`}>Launch simulation</a></div></article>)}</div></section>
+</BaseLayout>

@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ArchitectureExplorer from '../components/ArchitectureExplorer';
+
+const architectures = [
+  { name: 'MCP tool hub', status: 'Next engineering milestone', nodes: [
+    {id:'user',label:'Operator',detail:'Chooses server and grants a bounded scope',kind:'human',x:0,y:130},
+    {id:'client',label:'MCP client',detail:'Discovers tools, resources, and prompts',kind:'system',x:260,y:130},
+    {id:'gate',label:'Permission gateway',detail:'Validates identity, scope, arguments, and consequence',kind:'control',x:540,y:130},
+    {id:'server',label:'MCP server',detail:'Exposes typed, allowlisted capabilities',kind:'system',x:830,y:40},
+    {id:'tools',label:'Tools + resources',detail:'Read-only fixtures first; writes need confirmation',kind:'system',x:1110,y:40},
+    {id:'audit',label:'Audit + tests',detail:'Records requests, denials, results, and conformance',kind:'evidence',x:830,y:260},
+  ], edges:[['user','client'],['client','gate','request'],['gate','server','authorized'],['server','tools'],['gate','audit','decision'],['server','audit','result']] },
+  { name: 'RAG system', status: 'Research architecture', nodes: [
+    {id:'docs',label:'Governed corpus',detail:'Versioned sources with access metadata',kind:'system',x:0,y:40},
+    {id:'ingest',label:'Ingestion',detail:'Parse, chunk, enrich, and index',kind:'system',x:260,y:40},
+    {id:'retrieve',label:'Hybrid retrieval',detail:'Keyword + vector + metadata filters',kind:'system',x:520,y:40},
+    {id:'rerank',label:'Reranker',detail:'Orders evidence for the user question',kind:'system',x:790,y:40},
+    {id:'answer',label:'Answer + abstain',detail:'Cites evidence or declines when unsupported',kind:'control',x:1050,y:40},
+    {id:'eval',label:'Retrieval evaluation',detail:'Recall, citation support, faithfulness, freshness',kind:'evidence',x:520,y:260},
+    {id:'human',label:'Human review',detail:'Corrects sources and high-risk answers',kind:'human',x:1050,y:260},
+  ], edges:[['docs','ingest'],['ingest','retrieve'],['retrieve','rerank'],['rerank','answer'],['retrieve','eval'],['answer','eval'],['answer','human']] },
+  { name: 'Agent orchestration', status: 'Research architecture', nodes: [
+    {id:'event',label:'Task event',detail:'Normalized request plus policy context',kind:'system',x:0,y:120},
+    {id:'plan',label:'Bounded planner',detail:'Selects known steps; no open-ended autonomy',kind:'system',x:260,y:120},
+    {id:'policy',label:'Policy engine',detail:'Checks role, data, tool, and confirmation rules',kind:'control',x:520,y:120},
+    {id:'worker1',label:'Research worker',detail:'Read-only evidence acquisition',kind:'system',x:790,y:20},
+    {id:'worker2',label:'Action worker',detail:'Typed tool execution behind approval',kind:'system',x:790,y:220},
+    {id:'approve',label:'Human checkpoint',detail:'Reviews consequential writes',kind:'human',x:1050,y:220},
+    {id:'trace',label:'Trace + evaluation',detail:'State, tool, latency, cost, and failure evidence',kind:'evidence',x:1050,y:20},
+  ], edges:[['event','plan'],['plan','policy'],['policy','worker1'],['policy','worker2'],['worker1','trace'],['worker2','approve'],['approve','trace']] },
+];
+---
+<BaseLayout title="Architecture walkthroughs" description="Explore transparent system maps for MCP, RAG, and bounded AI agent orchestration.">
+  <header class="page-hero shell"><p class="eyebrow">Models are one node</p><h1 class="display">Architecture you can <em>interrogate.</em></h1><p class="lead">Drag, zoom, and inspect three target systems. Permission checks, human checkpoints, and evidence paths are visible because the difficult part of AI products lives outside the model call.</p></header>
+  <section class="section-tight shell"><ArchitectureExplorer architectures={architectures} client:load /></section>
+</BaseLayout>

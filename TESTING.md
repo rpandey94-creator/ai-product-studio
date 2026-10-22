@@ -11,19 +11,15 @@ python -m eval_workbench.runner --dataset data/synthetic_cases.json --out ../../
 
 Coverage includes a passing response, unsafe unauthorized action, empty dataset, duplicate IDs, missing fields, report generation, and a deliberately failing quality gate.
 
-## Static application checks
+## Astro application checks
 
 ```powershell
-node --check app.js
-node --check registry.js
-node --check atlas.js
-node --check framework-metadata.js
-node --check framework-metadata-connector.js
-node --check framework-release-metadata.js
-node --check experiences.js
-node --check labs.js
+npm test
+npm run build
 ```
 
-Manual browser checks cover home, builds, catalog, opportunities, roadmap, Evaluation Workbench, framework atlas, services, about, filtering, details, external-source links, mobile navigation, and honest status text.
+The build regenerates typed JSON from the preserved source modules, checks the 64 / 63 / 8 preservation gate, type-checks Astro and TypeScript, prerenders 72 pages, and verifies critical routes plus all 64 case files. Vitest independently validates catalog, simulation, framework-status, and Evaluation Workbench evidence invariants.
+
+Manual browser checks cover home, catalog search, framework search, architecture switching, the eight simulations and legacy routes, the Evaluation Workbench’s pass/fail selection, desktop/mobile overflow, mobile navigation, links, and console errors.
 
 Evidence outputs under `evidence/` are generated, not hand-authored benchmark claims.

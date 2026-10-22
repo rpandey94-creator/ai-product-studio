@@ -3,16 +3,19 @@
 ## Public research and portfolio application
 
 ```text
-Browser
-├── index.html        semantic shell and metadata
-├── styles.css        responsive visual system
-├── data.js           preserved build and synthetic browser QA data
-├── registry.js       expandable product research registry and evidence ledger
-├── atlas.js          framework and SDK research records
-├── framework-metadata*.js  point-in-time official repository metadata
-├── app.js            router, renderers, catalog filters, scoring, exports
-└── assets/           optimized presentation images
+Source records (registry.js, atlas.js, data.js, evidence/)
+        │ generated + count-checked at build time
+        ▼
+Astro static content shell (src/pages, 72 prerendered routes)
+        ├── React + TypeScript islands: catalog, workbench, framework filters
+        ├── React Flow: MCP, RAG, and bounded-agent architecture maps
+        ├── D3: evidence opportunity visualization
+        ├── React Three Fiber: deferred desktop homepage scene
+        ├── GSAP: reduced-motion-aware reveal choreography
+        └── /legacy/: preserved Phase 1 buildless application
 ```
+
+Astro emits static HTML to `dist`; there is no server adapter, database, API key, or runtime charge. Interactive libraries hydrate only on routes that use them. The Three.js scene hydrates only on larger screens when the visitor has not requested reduced motion.
 
 The static application sends no conversation data to a server. Rubric changes remain in memory and reports are generated locally using browser Blob downloads.
 

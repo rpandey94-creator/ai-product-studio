@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroScene from '../components/HeroScene';
+import NarrativeMotion from '../components/NarrativeMotion';
+import registry from '../data/registry.json';
+import frameworks from '../data/frameworks.json';
+import studio from '../data/studio.json';
+
+const working = registry.catalog.filter((item) => item.status.includes('Real'));
+const simulations = studio.products.filter((item) => item.slug !== 'customer-360-copilot');
+const featured = registry.catalog.filter((item) => ['eval-workbench','mcp-tool-hub','browser-vision-lab','rag-research-assistant'].includes(item.id));
+---
+<BaseLayout title="2027 Showcase" description="A transparent, evidence-led portfolio of AI product research, working software, simulations, and architecture decisions.">
+  <NarrativeMotion client:idle />
+  <section class="hero">
+    <div class="shell hero-grid">
+      <div class="hero-copy" data-reveal>
+        <p class="eyebrow">Field notes from the next interface era</p>
+        <h1 class="display">AI systems you can <em>inspect.</em></h1>
+        <p class="lead">A living product-engineering lab where market signals become architectures, architectures become tested vertical slices, and every claim carries an evidence status.</p>
+        <div class="button-row"><a class="button primary" href="/workbench/">Run the evaluation case</a><a class="button" href="/architecture/">Explore the system maps</a></div>
+      </div>
+      <HeroScene client:media="(min-width: 900px) and (prefers-reduced-motion: no-preference)" />
+    </div>
+  </section>
+
+  <section class="metric-rail" aria-label="Lab inventory">
+    <div class="metric"><strong>{registry.catalog.length}</strong><span>Research candidates, not product claims</span></div>
+    <div class="metric"><strong>{frameworks.length}</strong><span>Framework records with source links</span></div>
+    <div class="metric"><strong>{simulations.length}</strong><span>Browser experiences labeled simulation</span></div>
+    <div class="metric"><strong>{working.length}</strong><span>Locally runnable real system</span></div>
+  </section>
+
+  <section class="section shell narrative">
+    <aside class="narrative-aside" data-reveal><p class="eyebrow">The evidence loop</p><h2 class="section-title">From signal to software.</h2></aside>
+    <div>
+      <article class="narrative-step" data-reveal><span class="step-index">01 / RESEARCH</span><h3>Find the pressure.</h3><p>Demand reports, role specifications, engineering surveys, and platform constraints form the research layer. The 64 entries are candidates—each is a structured hypothesis, not a fictional launch.</p></article>
+      <article class="narrative-step" data-reveal><span class="step-index">02 / ARCHITECTURE</span><h3>Expose the boundary.</h3><p>Interactive maps show how models, tools, permissions, data, humans, and evidence fit together. Control planes are drawn explicitly because reliability lives at the boundaries.</p></article>
+      <article class="narrative-step" data-reveal><span class="step-index">03 / BUILD</span><h3>Cut a vertical slice.</h3><p>The Evaluation Workbench is executable Python with deterministic checks and automated tests. The browser console is a decision surface over synthetic fixtures—not a disguised production claim.</p></article>
+      <article class="narrative-step" data-reveal><span class="step-index">04 / VERIFY</span><h3>Ship the proof.</h3><p>Source, tests, generated reports, limitations, and next risks stay beside the product narrative. “Working” means reproducible; everything else keeps its honest label.</p></article>
+    </div>
+  </section>
+
+  <section class="section shell">
+    <p class="eyebrow" data-reveal>Selected evidence trails</p>
+    <h2 class="section-title" data-reveal>Four systems. Four different truths.</h2>
+    <div class="evidence-grid">
+      {featured.map((item, index) => <article class="evidence-card" data-reveal>
+        <span class={`tag ${item.status.includes('Real') ? 'working' : 'roadmap'}`}>{item.status}</span>
+        <h3>{item.name}</h3><p>{item.businessProblem}</p>
+        <a class="button" href={`/products/${item.id}/`}>Open case file</a><span class="number">0{index + 1}</span>
+      </article>)}
+    </div>
+  </section>
+
+  <section class="section shell">
+    <div class="status-banner"><span class="tag working">Claim discipline</span><p><strong>One verified implementation.</strong> Eight browser simulations. Fifty-five additional research or build-queue candidates. No client outcomes, production traffic, or framework integrations are implied where evidence does not exist.</p></div>
+  </section>
+</BaseLayout>

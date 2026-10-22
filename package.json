@@ -1,0 +1,43 @@
+{
+  "name": "ai-product-engineering-lab",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "npm run generate:data && astro check && astro build && npm run verify:dist",
+    "preview": "astro preview",
+    "check": "npm run generate:data && astro check",
+    "test": "npm run generate:data && vitest run",
+    "test:watch": "vitest",
+    "generate:data": "node scripts/generate-site-data.mjs",
+    "verify:dist": "node scripts/verify-build.mjs"
+  },
+  "dependencies": {
+    "@astrojs/react": "7.1.1",
+    "@react-three/fiber": "latest",
+    "@xyflow/react": "latest",
+    "astro": "7.4.2",
+    "d3": "latest",
+    "gsap": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "three": "latest"
+  },
+  "devDependencies": {
+    "@astrojs/check": "latest",
+    "@testing-library/jest-dom": "latest",
+    "@testing-library/react": "latest",
+    "@types/d3": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/three": "latest",
+    "jsdom": "27.4.0",
+    "typescript": "latest",
+    "vitest": "latest"
+  }
+}

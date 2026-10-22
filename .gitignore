@@ -5,3 +5,7 @@ Thumbs.db
 __pycache__/
 *.py[cod]
 .test-tmp/
+node_modules/
+dist/
+.astro/
+.local-node/
