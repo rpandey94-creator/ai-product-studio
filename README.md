@@ -1,26 +1,30 @@
-# AI Product Engineering Lab 2027
+# Rishav Pandey — AI Product Manager & Hands-On AI Builder
 
-An expandable, evidence-led lab that connects AI product discovery to architecture, implementation, evaluation, testing, deployment, and learning.
+An independent, evidence-led portfolio showing how product opportunities move from discovery and prioritization through interface design, AI architecture, evaluation, and tested implementation.
 
 ## What is included
 
-- A data-driven research registry of 64 differentiated AI product candidates with filters, demand evidence, architecture, frameworks, acceptance criteria, cost, and status.
-- A 2027 opportunity map that separates direct buyer/employer evidence from strategic inference.
-- A framework and SDK atlas covering 63 technologies with official sources, license class, deployment constraints, alternatives, and point-in-time GitHub metadata.
-- A locally runnable AI Evaluation Workbench: typed Python pipeline, four deterministic evaluators, seven passing tests, and JSON/CSV/JUnit evidence.
-- Eight preserved interactive product experiments with honest simulation labels; Customer 360 is not part of the forward-looking core.
-- Three fixed-scope freelance service packages.
-- A separate link to the existing authorized enterprise experience portfolio.
-- An Astro 7 static content shell, selective React + TypeScript islands, React Flow architecture maps, a D3 opportunity map, purposeful GSAP reveals, and one deferred-loading React Three Fiber scene.
-- Responsive layout, reduced-motion behavior, keyboard-accessible controls, SEO metadata, and Netlify security headers.
+- Thirteen curated, independent AI product case studies with honest `Designed`, `Interactive Prototype`, and `Working Implementation` labels.
+- Three flagship cases in depth: Customer Feedback Intelligence, a Permission-Aware Knowledge Assistant, and the AI Reliability & Observability Studio.
+- Two interactive React + TypeScript prototypes using clearly labeled synthetic data.
+- One verified implementation: a typed, dependency-free Python evaluation pipeline with four deterministic evaluators, seven passing automated tests, and JSON/CSV/JUnit evidence.
+- Explorable React Flow architectures that separate implemented technologies from proposed choices.
+- A responsive Astro 7 site with purposeful GSAP motion and one deferred-loading React Three Fiber scene.
+- The original 64-candidate catalog, framework atlas, eight simulations, roadmap, and legacy application preserved as a secondary research archive.
 
 ## Architecture choice
 
-The public lab now uses Astro for statically rendered content and React + TypeScript only for interaction that benefits from client state. The original buildless application remains available at `/legacy/` as a regression reference. `registry.js` still owns product research, `atlas.js` still owns technology research, and a generated-data gate guarantees that 64 catalog entries, 63 framework records, and eight active simulations survive the migration. Independently runnable applications remain under `apps/`.
+Astro statically renders the content-rich product cases. React + TypeScript is reserved for interfaces that need state, React Flow for architecture inspection, D3 for the archived opportunity map, GSAP for restrained motion, and React Three Fiber for the hero system model. The original buildless application remains at `/legacy/`; `registry.js` and `atlas.js` still own the preserved research data; independently runnable software remains under `apps/`.
 
 Static routes keep every case addressable and indexable:
 
-- `/catalog/` — expandable 64-candidate research field
+- `/projects/` — thirteen curated product directions
+- `/projects/<slug>/` — complete product case studies
+- `/product-thinking/` — product principles and decision model
+- `/about/` — independent portfolio context and capabilities
+- `/contact/` — verified ways to reach Rishav
+- `/research/` — gateway to the preserved research system
+- `/catalog/` — expandable 64-candidate research archive
 - `/opportunities/` — evidence-backed 2027 opportunity map
 - `/architecture/` — explorable MCP, RAG, and orchestration system maps
 - `/products/<slug>/` — 64 detailed product case files
@@ -41,12 +45,9 @@ npm run dev
 
 No API key, account, paid service, or card is needed. `npm test` runs frontend preservation tests. To run the first engineering application, follow `apps/evaluation-workbench/README.md`.
 
-## Deploy to Netlify
+## Deploy review to Netlify
 
-1. Create a GitHub repository and push this directory.
-2. In Netlify, import the repository.
-3. Use `npm run build` as the build command and `dist` as the publish directory. `netlify.toml` supplies both and pins Node 24.
-4. Deploy to a free `netlify.app` subdomain.
+The connected Netlify project uses `npm run build`, publishes `dist`, and pins Node 24 through `netlify.toml`. Portfolio changes must be reviewed on a Deploy Preview before the production branch is changed. The stable `prelaunch-interactive-lab` branch remains the rollback point; no paid Netlify feature is required.
 
 `netlify.toml` already contains the publish directory, security headers, and cache policy.
 

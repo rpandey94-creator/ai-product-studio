@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectVisual from '../../components/ProjectVisual.astro';
+import ArchitectureExplorer from '../../components/ArchitectureExplorer';
+import FeedbackLab from '../../components/FeedbackLab';
+import KnowledgeLab from '../../components/KnowledgeLab';
+import WorkbenchDemo from '../../components/WorkbenchDemo';
+import reportSource from '../../../evidence/evaluation-workbench-report.json';
+import fixtures from '../../../apps/evaluation-workbench/data/synthetic_cases.json';
+import { portfolioProjects, type PortfolioProject } from '../../data/portfolio';
+
+export function getStaticPaths() { return portfolioProjects.map((project) => ({ params: { slug: project.slug }, props: { project } })); }
+const { project } = Astro.props as { project: PortfolioProject };
+const tone = project.status === 'Working Implementation' ? 'working' : project.status === 'Interactive Prototype' ? 'simulation' : 'roadmap';
+const responses = new Map(fixtures.map((fixture) => [fixture.id, fixture.response]));
+const report = { ...reportSource, results: reportSource.results.map((result) => ({ ...result, response: responses.get(result.case_id) ?? 'Fixture response unavailable.' })) };
+const architecture = [{ name: project.title, status: project.stack.some((item)=>item.status==='Implemented') ? 'Mixed: implemented and proposed layers are identified below' : 'Proposed architecture', nodes: project.architecture, edges: project.edges }];
+---
+<BaseLayout title={project.title} description={project.oneLine}>
+  <header class={`case-hero case-${project.visual}`}><div class="shell case-hero-grid"><div><p class="eyebrow">Project {project.number} · {project.category}</p><span class={`tag ${tone}`}>{project.status}</span><h1 class="display">{project.title}</h1><p class="lead">{project.oneLine}</p><div class="button-row"><a class="button primary" href="#explore">Explore the product</a><a class="button" href="#architecture">Explore architecture</a><a class="button" href="#evaluate">Evaluate the product</a></div></div><ProjectVisual project={project} /></div></header>
+
+  <section class="section-tight shell claim-banner"><span class={`tag ${tone}`}>{project.status}</span><p>{project.status === 'Working Implementation' ? 'This project has executed source, tests, and generated evidence. Proposed observability integrations remain labeled separately.' : project.status === 'Interactive Prototype' ? 'The interface below is a purposeful browser prototype using synthetic data. It does not claim a live AI backend or customer results.' : 'This is a designed product case study. Architecture, targets, and technology choices are proposals—not completed implementation claims.'}</p></section>
+
+  <section class="section shell case-overview" id="explore"><div class="case-intro"><p class="eyebrow">01 · Product overview</p><h2 class="section-title">The problem before the model.</h2></div><div class="overview-grid"><article><h3>Target user</h3><p>{project.targetUser}</p></article><article><h3>Customer problem</h3><p>{project.problem}</p></article><article><h3>Why this project</h3><p>{project.whyNow}</p></article><article><h3>Discovery discipline</h3><ul>{project.discovery.map((item)=><li>{item}</li>)}</ul></article></div></section>
+
+  {project.slug === 'customer-feedback-intelligence' && <section class="section prototype-band shell"><div class="section-heading"><div><p class="eyebrow">Interactive prototype</p><h2>Move from a theme to an evidence-backed product decision.</h2></div><p>Switch themes to see frequency, severity, trend, source excerpts, and the decision they support.</p></div><FeedbackLab client:load /></section>}
+  {project.slug === 'permission-aware-knowledge-assistant' && <section class="section prototype-band shell"><div class="section-heading"><div><p class="eyebrow">Interactive prototype</p><h2>The same question should not search the same corpus for every role.</h2></div><p>Change roles and rerun the synthetic scenario to inspect the permission boundary.</p></div><KnowledgeLab client:load /></section>}
+  {project.slug === 'ai-reliability-observability-studio' && <section class="section prototype-band shell"><div class="section-heading"><div><p class="eyebrow">Executed evidence interface</p><h2>Failures are the most useful part of this demo.</h2></div><p>The UI reads the generated Python report. Select any case to inspect the actual deterministic scores and failure codes.</p></div><WorkbenchDemo report={report} client:load /></section>}
+
+  <section class="section shell"><div class="section-heading"><div><p class="eyebrow">02 · Product strategy</p><h2>Jobs, goals and a bounded MVP.</h2></div><p>The first version is designed to prove the riskiest product assumption without silently expanding into a platform.</p></div><div class="strategy-board"><article><h3>Jobs to be done</h3><ol>{project.jobs.map((item)=><li>{item}</li>)}</ol></article><article><h3>Product goals</h3><ul>{project.goals.map((item)=><li>{item}</li>)}</ul></article><article><h3>MVP — now</h3><ul>{project.mvp.map((item)=><li>{item}</li>)}</ul></article><article><h3>Later — deliberately deferred</h3><ul>{project.later.map((item)=><li>{item}</li>)}</ul></article></div><div class="metric-cards">{project.metrics.map((metric)=><div><span class={`metric-kind ${metric.kind}`}>{metric.kind}</span><strong>{metric.target}</strong><small>{metric.label}</small></div>)}</div></section>
+
+  <section class="section shell journey-section"><p class="eyebrow">03 · User journey</p><h2 class="section-title">A visible path from intent to accountable outcome.</h2><ol class="journey-line">{project.journey.map((item,index)=><li><span>{String(index+1).padStart(2,'0')}</span><strong>{item}</strong></li>)}</ol><div class="edge-grid"><article><h3>Relevant edge cases</h3><ul>{project.edgeCases.map((item)=><li>{item}</li>)}</ul></article><article><h3>Failure and risk register</h3><ul>{project.risks.map((item)=><li>{item}</li>)}</ul></article></div></section>
+
+  <section class="section architecture-band" id="architecture"><div class="shell"><div class="section-heading"><div><p class="eyebrow">04 · System architecture</p><h2>Inspect the components and boundaries.</h2></div><p>Drag and zoom the map. Implemented technologies are separated from proposed selections below.</p></div><ArchitectureExplorer architectures={architecture} client:visible /><div class="stack-decisions">{project.stack.map((item)=><article><span class={`stack-status ${item.status.toLowerCase()}`}>{item.status}</span><h3>{item.name}</h3><p><strong>{item.role}</strong></p><p>{item.reason}</p></article>)}</div></div></section>
+
+  <section class="section shell" id="evaluate"><div class="section-heading"><div><p class="eyebrow">05 · Evaluation and commercial reality</p><h2>Define quality before declaring success.</h2></div><p>Proposed targets are not measured outcomes. Measured results appear only where executable evidence exists.</p></div><div class="evaluation-grid"><article><h3>Evaluation plan</h3><ul>{project.evaluation.map((item)=><li>{item}</li>)}</ul></article><article><h3>Evidence available today</h3><ul>{project.evidence.map((item)=><li>{item}</li>)}</ul></article><article><h3>Latency, reliability and economics</h3><p>The release decision must balance task quality, failure cost, human review load, response time, infrastructure cost, and the value of the decision improved—not model novelty.</p></article></div></section>
+
+  <section class="section-tight shell next-build"><div><p class="eyebrow">06 · Inspect the build</p><h2>{project.status === 'Working Implementation' ? 'Source and evidence are available.' : 'The next build is intentionally explicit.'}</h2><ol>{project.next.map((item)=><li>{item}</li>)}</ol></div><div class="button-row">{project.demo && <a class="button primary" href={project.demo}>Open working interface</a>}{project.source && <a class="button" href={project.source}>Inspect source ↗</a>}<a class="button" href="https://github.com/rpandey94-creator/ai-product-studio">Repository ↗</a></div></section>
+</BaseLayout>
+

@@ -2,58 +2,62 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroScene from '../components/HeroScene';
 import NarrativeMotion from '../components/NarrativeMotion';
-import registry from '../data/registry.json';
-import frameworks from '../data/frameworks.json';
-import studio from '../data/studio.json';
-
-const working = registry.catalog.filter((item) => item.status.includes('Real'));
-const simulations = studio.products.filter((item) => item.slug !== 'customer-360-copilot');
-const featured = registry.catalog.filter((item) => ['eval-workbench','mcp-tool-hub','browser-vision-lab','rag-research-assistant'].includes(item.id));
+import ProjectVisual from '../components/ProjectVisual.astro';
+import { featuredProjects, portfolioProjects } from '../data/portfolio';
+const working = portfolioProjects.filter((project) => project.status === 'Working Implementation');
 ---
-<BaseLayout title="2027 Showcase" description="A transparent, evidence-led portfolio of AI product research, working software, simulations, and architecture decisions.">
+<BaseLayout title="AI Product Manager & Builder" description="Rishav Pandey's independent AI product management portfolio: product strategy, interactive prototypes, technical architectures, and verified implementation evidence.">
   <NarrativeMotion client:idle />
-  <section class="hero">
+  <section class="hero personal-hero">
     <div class="shell hero-grid">
       <div class="hero-copy" data-reveal>
-        <p class="eyebrow">Field notes from the next interface era</p>
-        <h1 class="display">AI systems you can <em>inspect.</em></h1>
-        <p class="lead">A living product-engineering lab where market signals become architectures, architectures become tested vertical slices, and every claim carries an evidence status.</p>
-        <div class="button-row"><a class="button primary" href="/workbench/">Run the evaluation case</a><a class="button" href="/architecture/">Explore the system maps</a></div>
+        <p class="eyebrow">Rishav Pandey · AI Product Manager & Hands-On AI Builder</p>
+        <h1 class="display">I design, prototype and build AI products that <em>solve real problems.</em></h1>
+        <p class="lead">This independent portfolio shows how I discover product opportunities, frame decisions, design user experiences, choose AI architectures, and turn selected concepts into tested software.</p>
+        <div class="button-row"><a class="button primary" href="/projects/">Explore product case studies</a><a class="button" href="/projects/ai-reliability-observability-studio/">View working project</a></div>
+        <div class="identity-links"><a href="https://github.com/rpandey94-creator">GitHub ↗</a><a href="/contact/">Contact ↗</a><a href="#proof">See the evidence ↓</a></div>
       </div>
-      <HeroScene client:media="(min-width: 900px) and (prefers-reduced-motion: no-preference)" />
+      <div class="hero-system"><HeroScene client:media="(min-width: 900px) and (prefers-reduced-motion: no-preference)" /><div class="hero-legend"><span>PROBLEM</span><span>PRODUCT</span><span>PROTOTYPE</span><span>EVIDENCE</span></div></div>
     </div>
   </section>
 
-  <section class="metric-rail" aria-label="Lab inventory">
-    <div class="metric"><strong>{registry.catalog.length}</strong><span>Research candidates, not product claims</span></div>
-    <div class="metric"><strong>{frameworks.length}</strong><span>Framework records with source links</span></div>
-    <div class="metric"><strong>{simulations.length}</strong><span>Browser experiences labeled simulation</span></div>
-    <div class="metric"><strong>{working.length}</strong><span>Locally runnable real system</span></div>
-  </section>
-
-  <section class="section shell narrative">
-    <aside class="narrative-aside" data-reveal><p class="eyebrow">The evidence loop</p><h2 class="section-title">From signal to software.</h2></aside>
-    <div>
-      <article class="narrative-step" data-reveal><span class="step-index">01 / RESEARCH</span><h3>Find the pressure.</h3><p>Demand reports, role specifications, engineering surveys, and platform constraints form the research layer. The 64 entries are candidates—each is a structured hypothesis, not a fictional launch.</p></article>
-      <article class="narrative-step" data-reveal><span class="step-index">02 / ARCHITECTURE</span><h3>Expose the boundary.</h3><p>Interactive maps show how models, tools, permissions, data, humans, and evidence fit together. Control planes are drawn explicitly because reliability lives at the boundaries.</p></article>
-      <article class="narrative-step" data-reveal><span class="step-index">03 / BUILD</span><h3>Cut a vertical slice.</h3><p>The Evaluation Workbench is executable Python with deterministic checks and automated tests. The browser console is a decision surface over synthetic fixtures—not a disguised production claim.</p></article>
-      <article class="narrative-step" data-reveal><span class="step-index">04 / VERIFY</span><h3>Ship the proof.</h3><p>Source, tests, generated reports, limitations, and next risks stay beside the product narrative. “Working” means reproducible; everything else keeps its honest label.</p></article>
-    </div>
+  <section class="portfolio-proofbar" id="proof" aria-label="Portfolio evidence summary">
+    <div><strong>13</strong><span>curated independent product directions</span></div><div><strong>3</strong><span>flagship case studies in depth</span></div><div><strong>{working.length}</strong><span>verified working implementation</span></div><div><strong>₹0</strong><span>paid infrastructure used</span></div>
   </section>
 
   <section class="section shell">
-    <p class="eyebrow" data-reveal>Selected evidence trails</p>
-    <h2 class="section-title" data-reveal>Four systems. Four different truths.</h2>
-    <div class="evidence-grid">
-      {featured.map((item, index) => <article class="evidence-card" data-reveal>
-        <span class={`tag ${item.status.includes('Real') ? 'working' : 'roadmap'}`}>{item.status}</span>
-        <h3>{item.name}</h3><p>{item.businessProblem}</p>
-        <a class="button" href={`/products/${item.id}/`}>Open case file</a><span class="number">0{index + 1}</span>
+    <div class="section-heading" data-reveal><div><p class="eyebrow">Selected case studies</p><h2 class="section-title">Product thinking you can inspect.</h2></div><p>Each case connects a customer problem to a product decision, interface, system architecture, evaluation plan, and honest implementation status.</p></div>
+    <div class="flagship-grid">
+      {featuredProjects.map((project) => <article class={`flagship-card flagship-${project.visual}`} data-reveal>
+        <div class="flagship-copy"><div class="card-kicker"><span>{project.number}</span><span class={`tag ${project.status === 'Working Implementation' ? 'working' : 'simulation'}`}>{project.status}</span></div><h3>{project.title}</h3><p>{project.oneLine}</p><dl><div><dt>Primary user</dt><dd>{project.targetUser}</dd></div><div><dt>Product question</dt><dd>{project.goals[0]}</dd></div></dl><a class="text-link" href={`/projects/${project.slug}/`}>Open the complete case study →</a></div>
+        <ProjectVisual project={project} compact />
       </article>)}
     </div>
+    <div class="center-action"><a class="button" href="/projects/">View all 13 product projects</a></div>
   </section>
 
-  <section class="section shell">
-    <div class="status-banner"><span class="tag working">Claim discipline</span><p><strong>One verified implementation.</strong> Eight browser simulations. Fifty-five additional research or build-queue candidates. No client outcomes, production traffic, or framework integrations are implied where evidence does not exist.</p></div>
+  <section class="section approach-section">
+    <div class="shell narrative">
+      <aside class="narrative-aside" data-reveal><p class="eyebrow">How I work</p><h2 class="section-title">From ambiguity to accountable AI.</h2><p class="lede-small">I treat the model as one component of a product system—not the product by itself.</p></aside>
+      <div>
+        <article class="narrative-step" data-reveal><span class="step-index">01 / DISCOVER</span><h3>Start with the decision.</h3><p>Map the user, the costly moment, the alternative workflow, and the evidence still missing. Assumptions stay labeled until research validates them.</p></article>
+        <article class="narrative-step" data-reveal><span class="step-index">02 / SCOPE</span><h3>Design the smallest honest proof.</h3><p>Prioritize a vertical slice that tests value and risk together: the user journey, permission boundary, failure path, and measurable release gate.</p></article>
+        <article class="narrative-step" data-reveal><span class="step-index">03 / ARCHITECT</span><h3>Expose every boundary.</h3><p>Draw data, identity, retrieval, orchestration, tools, human review, observability, latency, and cost—then explain the rejected alternatives.</p></article>
+        <article class="narrative-step" data-reveal><span class="step-index">04 / EVALUATE</span><h3>Make failure inspectable.</h3><p>Use golden datasets, edge cases, deterministic checks, trace review, and explicit product metrics. “Working” requires executable evidence.</p></article>
+      </div>
+    </div>
   </section>
+
+  <section class="section shell proof-section">
+    <div class="section-heading" data-reveal><div><p class="eyebrow">Verified implementation</p><h2 class="section-title">The AI Reliability Studio is real code.</h2></div><p>A dependency-free Python pipeline runs eight synthetic cases, passes seven automated tests, and produces JSON, CSV, and JUnit evidence. The interface exposes three intentional failures instead of hiding them.</p></div>
+    <div class="proof-console" data-reveal><div class="console-head"><span></span><span></span><span></span><strong>evaluation-run / verified</strong></div><div class="console-grid"><div><small>FIXTURES</small><strong>08</strong></div><div><small>PASSING</small><strong>05</strong></div><div><small>FAILING</small><strong>03</strong></div><div><small>AVG SCORE</small><strong>0.75</strong></div></div><ol><li><span>PASS</span> safe_action_with_citation</li><li><span>PASS</span> recovery_after_tool_failure</li><li class="fail"><span>FAIL</span> unauthorized_account_change</li></ol><div class="button-row"><a class="button primary" href="/projects/ai-reliability-observability-studio/">Inspect the build</a><a class="button" href="/workbench/">Open evaluation interface</a></div></div>
+  </section>
+
+  <section class="section shell roadmap-strip">
+    <div data-reveal><p class="eyebrow">Progression, not theatre</p><h2 class="section-title">Designed → prototyped → implemented → live.</h2></div>
+    <div class="progression" data-reveal><span class="done">Product case study</span><span class="done">Interactive prototype</span><span class="active">Working implementation</span><span>Live demo after verification</span></div>
+    <p class="lead">The next engineering step is a permission-aware knowledge assistant with executable retrieval and access-control tests, followed by trace integration in the Reliability Studio.</p>
+  </section>
+
+  <section class="section contact-band"><div class="shell"><p class="eyebrow">Open to AI Product Manager opportunities</p><h2>Want to discuss how I turn an AI idea into a measurable product?</h2><div class="button-row"><a class="button primary" href="/contact/">Contact Rishav</a><a class="button" href="https://github.com/rpandey94-creator">Review the source</a></div></div></section>
 </BaseLayout>

@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import registry from '../data/registry.json';
+import frameworks from '../data/frameworks.json';
+---
+<BaseLayout title="Supporting Research Archive" description="Supporting research catalog, framework atlas, architecture explorations, and preserved simulations behind Rishav Pandey's AI product portfolio.">
+  <header class="page-hero shell"><p class="eyebrow">Secondary resource</p><h1 class="display">Research preserved, <em>not mistaken for products.</em></h1><p class="lead">The earlier research lab remains intact for traceability. It supports the curated portfolio but no longer dominates the recruiter-facing experience.</p></header>
+  <section class="section shell archive-grid"><a href="/catalog/"><strong>{registry.catalog.length}</strong><h2>Research candidates</h2><p>An open-ended opportunity catalog. Entries are hypotheses, not shipped products.</p></a><a href="/frameworks/"><strong>{frameworks.length}</strong><h2>Framework records</h2><p>Official-source links and point-in-time technical notes.</p></a><a href="/architecture/"><strong>03</strong><h2>Architecture explorers</h2><p>MCP, RAG, and orchestration system maps.</p></a><a href="/simulations/"><strong>08</strong><h2>Legacy simulations</h2><p>Preserved browser experiences with explicit simulation labels.</p></a></section>
+</BaseLayout>

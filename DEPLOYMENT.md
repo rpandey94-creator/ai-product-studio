@@ -4,7 +4,8 @@
 
 - Hosting: Netlify free plan
 - Source: GitHub repository, Git-based continuous deployment
-- Production branch during review: `astro-immersive-migration`
+- Production branch during review: `prelaunch-interactive-lab` (unchanged rollback point)
+- Portfolio review branch: `personal-ai-pm-portfolio`
 - Build command: `npm run build`
 - Publish directory: `dist`
 - Runtime: Node 24
@@ -12,19 +13,19 @@
 
 ## Verification checklist
 
-- [ ] GitHub repository created and connected
-- [ ] Netlify production deploy successful
-- [x] Local static build generated 72 routes
+- [x] GitHub repository created and connected
+- [x] Stable Netlify production deploy successful
+- [x] Local static build generated 90 routes
 - [x] Frontend preservation tests and seven Python tests pass
-- [ ] Home and all primary static routes open on Deploy Preview
-- [ ] Catalog, framework, architecture, and evaluation interactions tested on Deploy Preview
-- [ ] Mobile navigation and narrow layout tested
-- [ ] External links checked
+- [ ] Personal portfolio and all primary routes open on Deploy Preview
+- [x] Feedback, knowledge-permission, and Reliability Studio interactions tested locally
+- [x] Mobile navigation and narrow layout tested locally at 390 px without overflow
+- [x] Email, LinkedIn, GitHub, and internal links checked locally
 - [ ] Console errors checked
-- [ ] Live URL added back to the Upwork portfolio/profile only after successful verification
+- [ ] Production promotion explicitly approved after Deploy Preview review
 
 The unchecked items require live GitHub/Netlify deployment and browser validation.
 
 ## Transition to `main`
 
-The existing `prelaunch-interactive-lab` commit remains the Phase 1 rollback point. This migration is developed on `astro-immersive-migration` and should reach production through a Deploy Preview. After the preview and production smoke tests pass, merge the migration branch into `main`, change Netlify’s production branch to `main`, trigger one verified deploy, and retain both historical branches/tags. Do not force-push or delete the Phase 1 branch.
+The existing `prelaunch-interactive-lab` commit remains the Phase 1 rollback point. `astro-immersive-migration` is the reviewed framework checkpoint; `personal-ai-pm-portfolio` adds the personal positioning and case-study system. Review the complete portfolio on a Deploy Preview. Only after explicit approval should the portfolio be merged into `main`, Netlify’s production branch be changed to `main`, and one verified production deploy be triggered. Retain both historical branches/tags and never force-push or delete the rollback branch.

@@ -4,6 +4,7 @@ import frameworks from '../src/data/frameworks.json';
 import studio from '../src/data/studio.json';
 import experiences from '../src/data/experiences.json';
 import report from '../evidence/evaluation-workbench-report.json';
+import { portfolioProjects } from '../src/data/portfolio';
 
 describe('migration preservation gates', () => {
   it('preserves the open-ended research catalog and framework atlas', () => {
@@ -27,5 +28,13 @@ describe('migration preservation gates', () => {
   it('does not mark planned framework work as executed', () => {
     const executed = frameworks.filter((item) => item.implemented.startsWith('Executed'));
     expect(executed.map((item) => item.name)).toEqual(['Python unittest']);
+  });
+
+  it('publishes a curated independent portfolio with honest status labels', () => {
+    expect(portfolioProjects).toHaveLength(13);
+    expect(portfolioProjects.some((item) => item.title.includes('Customer 360'))).toBe(false);
+    expect(portfolioProjects.filter((item) => item.flagship)).toHaveLength(3);
+    expect(portfolioProjects.filter((item) => item.status === 'Working Implementation').map((item) => item.slug)).toEqual(['ai-reliability-observability-studio']);
+    expect(portfolioProjects.flatMap((item) => item.stack).filter((item) => item.status === 'Implemented').map((item) => item.name)).toEqual(expect.arrayContaining(['Python', 'unittest', 'React + TypeScript']));
   });
 });

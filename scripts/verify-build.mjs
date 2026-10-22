@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
-const requiredRoutes = ['index.html','catalog/index.html','simulations/index.html','architecture/index.html','frameworks/index.html','opportunities/index.html','workbench/index.html','roadmap/index.html','products/eval-workbench/index.html','products/mcp-tool-hub/index.html','legacy/index.html'];
+const requiredRoutes = ['index.html','projects/index.html','product-thinking/index.html','about/index.html','contact/index.html','research/index.html','projects/customer-feedback-intelligence/index.html','projects/permission-aware-knowledge-assistant/index.html','projects/ai-reliability-observability-studio/index.html','catalog/index.html','frameworks/index.html','workbench/index.html','legacy/index.html'];
 
 for (const route of requiredRoutes) {
   const target = path.join(dist, route);
@@ -14,11 +14,17 @@ for (const route of requiredRoutes) {
 }
 
 const home = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
-for (const claim of ['64', '63', 'Browser experiences labeled simulation', 'Locally runnable real system']) {
+for (const claim of ['Rishav Pandey', 'AI Product Manager', '13', 'verified working implementation']) {
   if (!home.toLowerCase().includes(claim.toLowerCase())) throw new Error(`Homepage disclosure missing: ${claim}`);
 }
 
 const productPages = fs.readdirSync(path.join(dist, 'products'), { withFileTypes: true }).filter((entry) => entry.isDirectory());
 if (productPages.length !== 64) throw new Error(`Expected 64 product routes, found ${productPages.length}`);
 
-console.log(`Verified ${requiredRoutes.length} critical routes and ${productPages.length} product case files.`);
+const portfolioPages = fs.readdirSync(path.join(dist, 'projects'), { withFileTypes: true }).filter((entry) => entry.isDirectory());
+if (portfolioPages.length !== 13) throw new Error(`Expected 13 curated portfolio routes, found ${portfolioPages.length}`);
+
+const renderedText = fs.readFileSync(path.join(dist, 'projects', 'index.html'), 'utf8');
+if (renderedText.includes('Customer 360')) throw new Error('Customer 360 must not appear in the independent portfolio.');
+
+console.log(`Verified ${requiredRoutes.length} critical routes, ${portfolioPages.length} curated portfolio cases, and ${productPages.length} preserved research cases.`);

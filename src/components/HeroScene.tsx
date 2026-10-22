@@ -61,7 +61,7 @@ export default function HeroScene() {
   }, []);
 
   return (
-    <div className="hero-canvas" aria-label="Abstract map of connected AI product systems">
+    <div className="hero-canvas" aria-label="Interactive network connecting product problem, prototype, architecture, and evidence">
       <Canvas dpr={[1, 1.5]} camera={{ position: [0, 0, 7], fov: 46 }} gl={{ antialias: true, alpha: true }}>
         <ambientLight intensity={1.3} />
         <pointLight position={[3, 4, 5]} intensity={18} color="#c5f46d" />
