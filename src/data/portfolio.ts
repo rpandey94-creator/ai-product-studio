@@ -1,4 +1,22 @@
-export type PortfolioStatus = 'Product Case Study — Designed' | 'Interactive Prototype' | 'Working Implementation' | 'Live Demo';
+import { caseStudyEnhancements } from './case-study-details';
+
+export type PortfolioStatus = 'Product Case Study — Designed' | 'Interactive UX Prototype' | 'Locally Implemented and Tested' | 'Public Live Demo' | 'Interactive Prototype' | 'Working Implementation' | 'Live Demo';
+export type EvidenceKind = 'actually-measured' | 'synthetic-illustrative' | 'proposed-target' | 'modeled-assumption' | 'external-fact' | 'proposed' | 'measured';
+export type TechnologyStatus = 'Researched' | 'Proposed' | 'Selected for implementation' | 'Integrated and tested' | 'Implemented';
+
+export type ArchitectureNode = {
+  id: string; label: string; detail: string; kind: string; x: number; y: number;
+  role?: string; technology?: string; reason?: string; alternatives?: string[];
+  inputs?: string[]; outputs?: string[]; dependencies?: string[]; failureModes?: string[];
+  cost?: string; status?: TechnologyStatus;
+};
+
+export type ProductEconomics = {
+  formula: string;
+  unit: string;
+  assumptions: Array<{ label: string; value: number; unit: string; note: string }>;
+  interpretation: string;
+};
 
 export type PortfolioProject = {
   slug: string;
@@ -15,25 +33,36 @@ export type PortfolioProject = {
   discovery: string[];
   jobs: string[];
   goals: string[];
-  metrics: Array<{ label: string; target: string; kind: 'proposed' | 'measured' }>;
+  metrics: Array<{ label: string; target: string; kind: EvidenceKind; note?: string }>;
   mvp: string[];
   later: string[];
   edgeCases: string[];
   journey: string[];
-  architecture: Array<{ id: string; label: string; detail: string; kind: string; x: number; y: number }>;
+  architecture: ArchitectureNode[];
   edges: string[][];
-  stack: Array<{ name: string; role: string; status: 'Implemented' | 'Proposed'; reason: string }>;
+  stack: Array<{ name: string; role: string; status: TechnologyStatus; reason: string; alternatives?: string; evidence?: string }>;
   evaluation: string[];
   risks: string[];
   evidence: string[];
   next: string[];
   source?: string;
   demo?: string;
+  buyer?: string;
+  market?: string;
+  alternatives?: string[];
+  validation?: string[];
+  functionalRequirements?: string[];
+  nonFunctionalRequirements?: string[];
+  adoption?: string[];
+  decisions?: Array<{ decision: string; rationale: string; rejected: string }>;
+  economics?: ProductEconomics;
+  blueprint?: string;
+  sources?: Array<{ label: string; url: string; note: string }>;
 };
 
 const designed = 'Product Case Study — Designed' as const;
 
-export const portfolioProjects: PortfolioProject[] = [
+const legacyPortfolioProjects: PortfolioProject[] = [
   {
     slug: 'ai-job-application-copilot', number: '01', title: 'AI Job Application Copilot', category: 'AI Product Management', status: designed, visual: 'career',
     oneLine: 'Turn a job description and a candidate-owned career record into a truthful, reviewable application package.',
@@ -84,6 +113,33 @@ export const portfolioProjects: PortfolioProject[] = [
   {slug:'ai-data-onboarding-pipeline',number:'12',title:'AI-Assisted Data Onboarding Pipeline',category:'Forward-Deployed AI',status:designed,visual:'onboarding',oneLine:'Map messy customer data into a governed target schema with previews, rules, and rollback.',targetUser:'Implementation teams onboarding customer or partner data.',problem:'Schema mapping combines ambiguous business meaning with high-risk bulk writes; a plausible column match can still corrupt operations.',whyNow:'Adapted from forward-deployed engineering work that proves integration, data reasoning, and accountable deployment.',discovery:['Preview and rollback are core UX','AI suggests mappings but cannot silently apply them'],jobs:['Understand source quality','Map fields quickly','Validate before import'],goals:['Fewer mapping errors','Reusable transformation recipes','Recoverable imports'],metrics:[{label:'Mapping acceptance',target:'Measured',kind:'proposed'},{label:'Irreversible writes',target:'0',kind:'proposed'}],mvp:['Schema profiler','Mapping suggestions','Validation preview','Dry run and rollback'],later:['Connector library','Data quality monitoring','Transformation marketplace'],edgeCases:['Encoding drift','Many-to-one fields','Sensitive columns','Partial imports'],journey:['Connect sample','Profile','Review mappings','Dry run','Approve import'],architecture:[{id:'source',label:'Source sample',detail:'CSV/API extracts',kind:'input',x:0,y:80},{id:'profile',label:'Profiler',detail:'Types, nulls, distributions, PII',kind:'control',x:260,y:80},{id:'map',label:'Mapping assistant',detail:'Candidate transformations + reasons',kind:'process',x:520,y:10},{id:'validate',label:'Dry-run validator',detail:'Rows, rejects, invariants',kind:'evidence',x:520,y:170},{id:'load',label:'Approved loader',detail:'Idempotency, audit, rollback',kind:'output',x:840,y:80}],edges:[['source','profile','sample'],['profile','map','schema'],['map','validate','recipe'],['profile','validate','constraints'],['validate','load','approved batch']],stack:[{name:'Pydantic',role:'Schema contracts',status:'Proposed',reason:'Typed validation clarifies errors before any load.'},{name:'DuckDB',role:'Local profiling and dry runs',status:'Proposed',reason:'Fast local analytical queries keep the first prototype zero-cost.'}],evaluation:['Mapping golden set','Row-level reject reasons','Idempotent reruns','Rollback verification'],risks:['PII exposure','Silent type coercion','Partial writes'],evidence:['Designed pipeline only'],next:['Build CSV profiler','Create mapping fixtures','Implement dry-run report']},
   {slug:'operational-ai-command-center',number:'13',title:'Operational AI Command Center',category:'Forward-Deployed AI',status:designed,visual:'command',oneLine:'Give operators one evidence-led surface for AI workload health, exceptions, cost, and intervention.',targetUser:'Operations leads responsible for multiple AI workflows.',problem:'Teams cannot manage AI systems from uptime alone; quality drift, queue pressure, cost, and human escalations need one operating model.',whyNow:'Adapted from forward-deployed engineering principles and Aishwarya’s emphasis on observability, monitoring, reliability, and production constraints.',discovery:['Decision-oriented alerts over decorative dashboards','Every metric maps to an operator action'],jobs:['Know what needs intervention','Diagnose the failure path','Balance quality, latency, and cost'],goals:['Fast detection','Actionable alerts','Clear system ownership'],metrics:[{label:'Detection delay',target:'<5 min proposed',kind:'proposed'},{label:'Alert actionability',target:'≥80%',kind:'proposed'}],mvp:['Workflow health map','Trace and failure queue','Budget and latency view','Intervention runbook'],later:['Forecasted capacity','Automated rollback proposals','Cross-product SLOs'],edgeCases:['Telemetry gaps','Alert storms','Metric gaming','Regional outage'],journey:['Scan portfolio','Open exception','Inspect trace','Choose runbook','Resolve and document'],architecture:[{id:'systems',label:'AI workloads',detail:'Agents, RAG, document, realtime',kind:'input',x:0,y:80},{id:'telemetry',label:'Telemetry pipeline',detail:'Traces, metrics, evals, costs',kind:'process',x:260,y:80},{id:'rules',label:'SLO + quality rules',detail:'Thresholds and anomaly logic',kind:'control',x:530,y:20},{id:'incidents',label:'Incident workspace',detail:'Evidence, owner, runbook',kind:'evidence',x:530,y:180},{id:'action',label:'Controlled action',detail:'Escalate, throttle, rollback proposal',kind:'output',x:840,y:80}],edges:[['systems','telemetry','events'],['telemetry','rules','signals'],['telemetry','incidents','traces'],['rules','incidents','alerts'],['incidents','action','approved response']],stack:[{name:'OpenTelemetry',role:'Portable traces and metrics',status:'Proposed',reason:'Vendor-neutral instrumentation keeps the architecture inspectable.'},{name:'Phoenix',role:'AI trace analysis',status:'Proposed',reason:'Provides an evaluation and observability path for model-centric failures.'}],evaluation:['Alert precision','Synthetic incident drills','Trace completeness','Runbook success'],risks:['Noisy alerts','Missing business context','Unsafe automated remediation'],evidence:['Designed operations case study only'],next:['Define AI SLO model','Generate synthetic traces','Prototype incident workflow']}
 ];
+
+export const portfolioProjects: PortfolioProject[] = legacyPortfolioProjects.map((project) => {
+  const enhancement = caseStudyEnhancements[project.slug];
+  if (!enhancement) throw new Error(`Missing case-study enhancement for ${project.slug}`);
+  return {
+    ...project,
+    ...enhancement,
+    architecture: project.architecture.map((node) => {
+      const component = enhancement.components[node.id] ?? {};
+      return {
+        ...node,
+        ...component,
+        role: component.role ?? node.detail,
+        technology: component.technology ?? 'Technology decision pending',
+        reason: component.reason ?? 'Component boundary retained from the reviewed architecture.',
+        alternatives: Array.isArray(component.alternatives) ? component.alternatives : ['Alternative analysis pending'],
+        inputs: Array.isArray(component.inputs) ? component.inputs : ['Contract to be defined'],
+        outputs: Array.isArray(component.outputs) ? component.outputs : ['Contract to be defined'],
+        dependencies: Array.isArray(component.dependencies) ? component.dependencies : ['Dependency review pending'],
+        failureModes: Array.isArray(component.failureModes) ? component.failureModes : [component.failureModes ?? 'Failure analysis pending'],
+        cost: component.cost ?? 'Cost model pending',
+        status: component.status ?? 'Proposed',
+      };
+    }),
+    stack: enhancement.stack,
+  } as PortfolioProject;
+});
 
 export const featuredProjects = portfolioProjects.filter((project) => project.flagship);
 

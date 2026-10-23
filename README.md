@@ -4,8 +4,9 @@ An independent, evidence-led portfolio showing how product opportunities move fr
 
 ## What is included
 
-- Thirteen curated, independent AI product case studies with honest `Designed`, `Interactive Prototype`, and `Working Implementation` labels.
-- Three flagship cases in depth: Customer Feedback Intelligence, a Permission-Aware Knowledge Assistant, and the AI Reliability & Observability Studio.
+- Thirteen curated, independent AI product case studies with honest `Product Case Study — Designed`, `Interactive UX Prototype`, `Locally Implemented and Tested`, and `Public Live Demo` labels.
+- Four flagship cases in depth: Customer Feedback Intelligence, Permission-Aware Enterprise Knowledge Assistant, AI Reliability & Observability Studio, and Real-Time Multimodal / Voice Assistant.
+- Product-specific economics, component-level architecture decisions, official-source research, and engineering blueprints for all 13 cases.
 - Two interactive React + TypeScript prototypes using clearly labeled synthetic data.
 - One verified implementation: a typed, dependency-free Python evaluation pipeline with four deterministic evaluators, seven passing automated tests, and JSON/CSV/JUnit evidence.
 - Explorable React Flow architectures that separate implemented technologies from proposed choices.

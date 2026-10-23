@@ -4,7 +4,7 @@ import HeroScene from '../components/HeroScene';
 import NarrativeMotion from '../components/NarrativeMotion';
 import ProjectVisual from '../components/ProjectVisual.astro';
 import { featuredProjects, portfolioProjects } from '../data/portfolio';
-const working = portfolioProjects.filter((project) => project.status === 'Working Implementation');
+const working = portfolioProjects.filter((project) => project.status === 'Locally Implemented and Tested');
 ---
 <BaseLayout title="AI Product Manager & Builder" description="Rishav Pandey's independent AI product management portfolio: product strategy, interactive prototypes, technical architectures, and verified implementation evidence.">
   <NarrativeMotion client:idle />
@@ -29,7 +29,7 @@ const working = portfolioProjects.filter((project) => project.status === 'Workin
     <div class="section-heading" data-reveal><div><p class="eyebrow">Selected case studies</p><h2 class="section-title">Product thinking you can inspect.</h2></div><p>Each case connects a customer problem to a product decision, interface, system architecture, evaluation plan, and honest implementation status.</p></div>
     <div class="flagship-grid">
       {featuredProjects.map((project) => <article class={`flagship-card flagship-${project.visual}`} data-reveal>
-        <div class="flagship-copy"><div class="card-kicker"><span>{project.number}</span><span class={`tag ${project.status === 'Working Implementation' ? 'working' : 'simulation'}`}>{project.status}</span></div><h3>{project.title}</h3><p>{project.oneLine}</p><dl><div><dt>Primary user</dt><dd>{project.targetUser}</dd></div><div><dt>Product question</dt><dd>{project.goals[0]}</dd></div></dl><a class="text-link" href={`/projects/${project.slug}/`}>Open the complete case study →</a></div>
+        <div class="flagship-copy"><div class="card-kicker"><span>{project.number}</span><span class={`tag ${project.status === 'Locally Implemented and Tested' ? 'working' : 'simulation'}`}>{project.status}</span></div><h3>{project.title}</h3><p>{project.oneLine}</p><dl><div><dt>Primary user</dt><dd>{project.targetUser}</dd></div><div><dt>Product question</dt><dd>{project.goals[0]}</dd></div></dl><a class="text-link" href={`/projects/${project.slug}/`}>Open the complete case study →</a></div>
         <ProjectVisual project={project} compact />
       </article>)}
     </div>
