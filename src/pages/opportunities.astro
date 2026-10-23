@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import OpportunityMap from '../components/OpportunityMap';
+import registry from '../data/registry.json';
+---
+<BaseLayout title="Opportunity signals" description="An evidence map of the market signals behind the AI product engineering research catalog.">
+  <header class="page-hero shell"><p class="eyebrow">Demand, roles, constraints</p><h1 class="display">Opportunity <em>signals.</em></h1><p class="lead">A compact visual model of current demand strength. Scores rank the evidence gathered for this research program; they are not market-size forecasts.</p></header>
+  <section class="section-tight shell"><OpportunityMap items={registry.opportunityMap} client:visible /></section>
+  <section class="section-tight shell"><h2 class="section-title">Research ledger</h2><div class="case-grid">{registry.evidence.map((source) => <article class="case-card"><span class="tag">{source.type}</span><h3>{source.title}</h3><p>{source.finding}</p><div class="case-footer"><span class="eyebrow">{source.date}</span><a class="button" href={source.url}>Read source ↗</a></div></article>)}</div></section>
+</BaseLayout>

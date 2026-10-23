@@ -1,0 +1,4382 @@
+{
+  "evidence": [
+    {
+      "id": "upwork-2026",
+      "type": "Demand report",
+      "date": "2026-02-04",
+      "title": "Upwork In-Demand Skills 2026",
+      "signal": "Demonstrated demand",
+      "finding": "AI integration grew 178% year over year; AI chatbot development grew 71%; applied AI skills overall grew 109%.",
+      "url": "https://www.upwork.com/research/in-demand-skills-2026"
+    },
+    {
+      "id": "upwork-july-2026",
+      "type": "Marketplace data",
+      "date": "2026-07-01",
+      "title": "Upwork Monthly Hiring Insights — July 2026",
+      "signal": "Demonstrated demand",
+      "finding": "AI automation led AI searches; AI integration, full-stack AI development, computer vision, and creative AI roles showed specialized demand.",
+      "url": "https://www.upwork.com/research/upwork-monthly-hiring-insights-july-2026"
+    },
+    {
+      "id": "upwork-agent-job",
+      "type": "Freelance posting",
+      "date": "2026-10-21",
+      "title": "AI Agent Developer — Voice, RAG, MCP & Workflow Automation",
+      "signal": "Direct buyer request",
+      "finding": "A live brief requested Python, LangGraph, voice AI, RAG, MCP, vector databases, FastAPI, integrations, and multi-agent workflows.",
+      "url": "https://www.upwork.com/freelance-jobs/apply/Agent-Developer-Voice-RAG-MCP-Workflow-Automation_~022112890219280064537/"
+    },
+    {
+      "id": "upwork-engineer-job",
+      "type": "Freelance posting",
+      "date": "2026-10-21",
+      "title": "AI Engineer — Agents, RAG, MCP, LangChain & OpenAI",
+      "signal": "Direct buyer request",
+      "finding": "A live expert brief required reliable agents, business-tool integrations, citations, MCP servers, testing, latency/cost work, and production deployment.",
+      "url": "https://www.upwork.com/freelance-jobs/apply/Engineer-Agents-RAG-MCP-LangChain-OpenAI_~022112733024081010713/"
+    },
+    {
+      "id": "mckinsey-2026",
+      "type": "Enterprise survey",
+      "date": "2026-08-25",
+      "title": "McKinsey State of AI 2026",
+      "signal": "Enterprise adoption",
+      "finding": "40% of large enterprises reported scaling agents, while coding agents and internal AI application development expanded; value remains uneven.",
+      "url": "https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai"
+    },
+    {
+      "id": "langchain-2026",
+      "type": "Engineering survey",
+      "date": "2026-06-12",
+      "title": "State of Agent Engineering 2026",
+      "signal": "Implementation need",
+      "finding": "Respondents reported production agent growth, with quality and observability as central production concerns and evaluation adoption still lagging.",
+      "url": "https://www.langchain.com/state-of-agent-engineering"
+    },
+    {
+      "id": "openai-applied-role",
+      "type": "Employer demand",
+      "date": "2026-10-22",
+      "title": "OpenAI Applied AI Engineer — Agent Enablement",
+      "signal": "Role requirements",
+      "finding": "The role spans connectors, APIs, CLIs, MCP, identity, permissioning, architecture, code, evaluation, failure tracing, launch, and iteration.",
+      "url": "https://openai.com/careers/applied-ai-engineer-sign-in-with-chatgpt-san-francisco/"
+    },
+    {
+      "id": "livekit-pm",
+      "type": "Employer demand",
+      "date": "2026-10-22",
+      "title": "LiveKit Staff Product Manager — Agent Hosting",
+      "signal": "Role requirements",
+      "finding": "The role emphasizes deploying and operating realtime agents with reliability, latency, autoscaling, regional coverage, and usage-based economics.",
+      "url": "https://jobs.ashbyhq.com/livekit/a43e43b4-a41f-49b4-ae19-fbc0729f2a60"
+    },
+    {
+      "id": "health-agent-pm",
+      "type": "Employer demand",
+      "date": "2026-10-22",
+      "title": "Hello Patient AI Agent Product Manager",
+      "signal": "Role requirements",
+      "finding": "The role owns customer requirements through production launch for healthcare voice, SMS, and chat agents, including guardrails, tools, and evaluations.",
+      "url": "https://jobs.ashbyhq.com/hellopatient/1342d2e4-7fe0-44ce-82b3-bb809878517e/"
+    },
+    {
+      "id": "netlify-free",
+      "type": "Deployment constraint",
+      "date": "2026-10-21",
+      "title": "Netlify credit-based Free plan",
+      "signal": "Verified feasibility",
+      "finding": "The connected account has 300 monthly credits, a hard no-overage limit, unlimited deploy previews, serverless functions/storage, and CDN delivery.",
+      "url": "https://docs.netlify.com/manage/accounts-and-billing/billing/billing-for-credit-based-plans/credit-based-pricing-plans/"
+    }
+  ],
+  "catalog": [
+    {
+      "id": "eval-workbench",
+      "name": "AI Evaluation Workbench",
+      "industry": "AI product teams",
+      "targetUsers": "QA lead / AI PM",
+      "businessProblem": "Test conversation and agent behavior with executable evidence",
+      "buyerPersona": "QA lead / AI PM",
+      "category": "Evaluation & Safety",
+      "modality": "Text + traces",
+      "evidenceIds": [
+        "langchain-2026",
+        "upwork-engineer-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Executable Python pipeline",
+        "Rubric editor",
+        "Regression reports"
+      ],
+      "userJourney": [
+        "Load test fixture",
+        "Execute evaluator",
+        "Inspect evidence",
+        "Prioritize failure",
+        "Export report"
+      ],
+      "frameworks": [
+        "Python",
+        "Promptfoo",
+        "Ragas",
+        "Arize Phoenix",
+        "OpenTelemetry"
+      ],
+      "architecture": "Dataset → runner → deterministic/model evaluators → report store → review UI",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Evaluation design",
+        "Python testing",
+        "Observability",
+        "Safety analysis"
+      ],
+      "evaluation": [
+        "Positive, negative, and edge fixtures",
+        "Deterministic assertions",
+        "Failure taxonomy",
+        "Regression gate"
+      ],
+      "complexity": 1,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Locally Runnable Real System",
+      "github": "https://github.com/rpandey94-creator/ai-product-studio/tree/prelaunch-interactive-lab/apps/evaluation-workbench",
+      "demo": "#/qa-console",
+      "improvements": [
+        "Add trace ingestion and model-judge adapters",
+        "Calibrate thresholds with multiple reviewers",
+        "Add versioned datasets and CI workflow"
+      ],
+      "priority": 500,
+      "index": 1
+    },
+    {
+      "id": "mcp-tool-hub",
+      "name": "MCP Agent Tool Hub",
+      "industry": "Developer platforms",
+      "targetUsers": "Applied AI engineer",
+      "businessProblem": "Expose safe tools through real MCP clients and servers",
+      "buyerPersona": "Applied AI engineer",
+      "category": "Agent Protocols",
+      "modality": "Agents + tools",
+      "evidenceIds": [
+        "openai-applied-role",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Server registry",
+        "Permission scopes",
+        "Tool-call inspector"
+      ],
+      "userJourney": [
+        "Discover capability",
+        "Request scoped permission",
+        "Call tool",
+        "Validate result",
+        "Audit or revoke"
+      ],
+      "frameworks": [
+        "MCP",
+        "A2A",
+        "AG-UI",
+        "FastAPI",
+        "TypeScript"
+      ],
+      "architecture": "Agent/client → protocol SDK → permission gateway → tools/resources → audit log",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Protocol integration",
+        "Tool schemas",
+        "Authorization",
+        "Agent UX"
+      ],
+      "evaluation": [
+        "Schema conformance",
+        "Permission denial",
+        "Tool failure recovery",
+        "Audit completeness"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "In Build Queue",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 430,
+      "index": 7
+    },
+    {
+      "id": "agui-support-copilot",
+      "name": "AG-UI Support Copilot",
+      "industry": "SaaS support",
+      "targetUsers": "Support product lead",
+      "businessProblem": "Stream agent state, tools, and approval into a transparent UI",
+      "buyerPersona": "Support product lead",
+      "category": "Agent Protocols",
+      "modality": "Agents + tools",
+      "evidenceIds": [
+        "openai-applied-role",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Event stream",
+        "Generative UI",
+        "Approval controls"
+      ],
+      "userJourney": [
+        "Discover capability",
+        "Request scoped permission",
+        "Call tool",
+        "Validate result",
+        "Audit or revoke"
+      ],
+      "frameworks": [
+        "MCP",
+        "A2A",
+        "AG-UI",
+        "FastAPI",
+        "TypeScript"
+      ],
+      "architecture": "Agent/client → protocol SDK → permission gateway → tools/resources → audit log",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Protocol integration",
+        "Tool schemas",
+        "Authorization",
+        "Agent UX"
+      ],
+      "evaluation": [
+        "Schema conformance",
+        "Permission denial",
+        "Tool failure recovery",
+        "Audit completeness"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 430,
+      "index": 9
+    },
+    {
+      "id": "browser-agent-harness",
+      "name": "Browser Agent Test Harness",
+      "industry": "QA and automation",
+      "targetUsers": "QA engineering lead",
+      "businessProblem": "Run reproducible browser tasks and inspect action safety",
+      "buyerPersona": "QA engineering lead",
+      "category": "Agent Protocols",
+      "modality": "Agents + tools",
+      "evidenceIds": [
+        "openai-applied-role",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Task fixtures",
+        "Action log",
+        "Replay and assertions"
+      ],
+      "userJourney": [
+        "Discover capability",
+        "Request scoped permission",
+        "Call tool",
+        "Validate result",
+        "Audit or revoke"
+      ],
+      "frameworks": [
+        "MCP",
+        "A2A",
+        "AG-UI",
+        "FastAPI",
+        "TypeScript"
+      ],
+      "architecture": "Agent/client → protocol SDK → permission gateway → tools/resources → audit log",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Protocol integration",
+        "Tool schemas",
+        "Authorization",
+        "Agent UX"
+      ],
+      "evaluation": [
+        "Schema conformance",
+        "Permission denial",
+        "Tool failure recovery",
+        "Audit completeness"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 430,
+      "index": 10
+    },
+    {
+      "id": "rag-research-assistant",
+      "name": "RAG Research Assistant",
+      "industry": "Research and consulting",
+      "targetUsers": "Research team lead",
+      "businessProblem": "Build evidence-led answers across a controlled source set",
+      "buyerPersona": "Research team lead",
+      "category": "RAG & Search",
+      "modality": "Text + retrieval",
+      "evidenceIds": [
+        "upwork-agent-job",
+        "upwork-engineer-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Corpus explorer",
+        "Hybrid retrieval",
+        "Citation evaluation"
+      ],
+      "userJourney": [
+        "Choose corpus",
+        "Ask question",
+        "Retrieve and rerank",
+        "Answer with citations",
+        "Evaluate or abstain"
+      ],
+      "frameworks": [
+        "LlamaIndex",
+        "Haystack",
+        "Qdrant",
+        "pgvector",
+        "Ragas"
+      ],
+      "architecture": "Ingestion → chunks/metadata → vector/keyword retrieval → reranker → answer/evals",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Retrieval engineering",
+        "Citation UX",
+        "Data pipelines",
+        "RAG evaluation"
+      ],
+      "evaluation": [
+        "Retrieval recall",
+        "Citation support",
+        "Faithfulness",
+        "Unanswerable queries",
+        "Freshness"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "In Build Queue",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 430,
+      "index": 18
+    },
+    {
+      "id": "support-search-copilot",
+      "name": "Support Resolution Search Copilot",
+      "industry": "SaaS support",
+      "targetUsers": "Support enablement lead",
+      "businessProblem": "Retrieve prior resolutions and product evidence for agents",
+      "buyerPersona": "Support enablement lead",
+      "category": "RAG & Search",
+      "modality": "Text + retrieval",
+      "evidenceIds": [
+        "upwork-agent-job",
+        "upwork-engineer-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Ticket retrieval",
+        "Freshness rules",
+        "Feedback loop"
+      ],
+      "userJourney": [
+        "Choose corpus",
+        "Ask question",
+        "Retrieve and rerank",
+        "Answer with citations",
+        "Evaluate or abstain"
+      ],
+      "frameworks": [
+        "LlamaIndex",
+        "Haystack",
+        "Qdrant",
+        "pgvector",
+        "Ragas"
+      ],
+      "architecture": "Ingestion → chunks/metadata → vector/keyword retrieval → reranker → answer/evals",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Retrieval engineering",
+        "Citation UX",
+        "Data pipelines",
+        "RAG evaluation"
+      ],
+      "evaluation": [
+        "Retrieval recall",
+        "Citation support",
+        "Faithfulness",
+        "Unanswerable queries",
+        "Freshness"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Interactive Simulation",
+      "github": null,
+      "demo": "#/products",
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 430,
+      "index": 22
+    },
+    {
+      "id": "invoice-validation-agent",
+      "name": "Invoice Validation & Exception Agent",
+      "industry": "Finance operations",
+      "targetUsers": "AP operations buyer",
+      "businessProblem": "Extract invoice fields and route policy exceptions",
+      "buyerPersona": "AP operations buyer",
+      "category": "Document AI",
+      "modality": "Documents + vision",
+      "evidenceIds": [
+        "upwork-2026",
+        "mckinsey-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "OCR extraction",
+        "PO validation",
+        "Human review"
+      ],
+      "userJourney": [
+        "Receive document",
+        "Classify and extract",
+        "Validate schema",
+        "Review exception",
+        "Export approved record"
+      ],
+      "frameworks": [
+        "Pydantic AI",
+        "PaddleOCR",
+        "Docling",
+        "ONNX Runtime",
+        "FastAPI"
+      ],
+      "architecture": "Secure intake → OCR/VLM → typed schema → validators → review queue",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "OCR pipelines",
+        "Structured outputs",
+        "Validation",
+        "Human review"
+      ],
+      "evaluation": [
+        "Field accuracy",
+        "Confidence calibration",
+        "Malformed input",
+        "Cross-field validation"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Interactive Simulation",
+      "github": null,
+      "demo": "#/products",
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 430,
+      "index": 24
+    },
+    {
+      "id": "browser-vision-lab",
+      "name": "Browser-Native AI Vision Lab",
+      "industry": "Cross-industry",
+      "targetUsers": "Applied AI learner / client",
+      "businessProblem": "Run real image classification or detection entirely in the browser",
+      "buyerPersona": "Applied AI learner / client",
+      "category": "Vision & Multimodal",
+      "modality": "Vision / media",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Local image input",
+        "WebGPU/WASM inference",
+        "Confidence explorer"
+      ],
+      "userJourney": [
+        "Load local media",
+        "Run inference",
+        "Inspect detections",
+        "Correct result",
+        "Export evidence"
+      ],
+      "frameworks": [
+        "Transformers.js",
+        "ONNX Runtime Web",
+        "OpenCV",
+        "SAM 2",
+        "FFmpeg"
+      ],
+      "architecture": "Browser/local media → preprocessing → ONNX/WebGPU model → postprocessing → UI",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Computer vision",
+        "Browser inference",
+        "Model packaging",
+        "Performance"
+      ],
+      "evaluation": [
+        "Labeled fixture set",
+        "False positive/negative review",
+        "Device performance",
+        "Privacy boundary"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "In Build Queue",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 430,
+      "index": 30
+    },
+    {
+      "id": "n8n-support-automation",
+      "name": "Support Operations Automation Pack",
+      "industry": "Customer support",
+      "targetUsers": "Support operations lead",
+      "businessProblem": "Connect tickets, knowledge, alerts, and escalation workflows",
+      "buyerPersona": "Support operations lead",
+      "category": "Workflow Automation",
+      "modality": "Events + tools",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Ticket trigger",
+        "Classifier",
+        "Escalation workflow"
+      ],
+      "userJourney": [
+        "Receive event",
+        "Normalize state",
+        "Route tasks",
+        "Pause for approval",
+        "Write and audit"
+      ],
+      "frameworks": [
+        "n8n",
+        "Activepieces",
+        "Trigger.dev",
+        "Dify",
+        "FastAPI"
+      ],
+      "architecture": "Trigger → workflow engine → bounded agents/tools → approval → system adapter",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Workflow design",
+        "API integration",
+        "Idempotency",
+        "Operations UX"
+      ],
+      "evaluation": [
+        "Happy path",
+        "Retries",
+        "Duplicate event",
+        "Approval enforcement",
+        "Recovery"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 430,
+      "index": 43
+    },
+    {
+      "id": "rag-eval-lab",
+      "name": "RAG Retrieval & Citation Evaluator",
+      "industry": "Knowledge teams",
+      "targetUsers": "Applied AI lead",
+      "businessProblem": "Diagnose retrieval, support, faithfulness, and abstention",
+      "buyerPersona": "Applied AI lead",
+      "category": "Evaluation & Safety",
+      "modality": "Text + traces",
+      "evidenceIds": [
+        "langchain-2026",
+        "upwork-engineer-job"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Golden Q&A set",
+        "Retrieval metrics",
+        "Citation audit"
+      ],
+      "userJourney": [
+        "Load test fixture",
+        "Execute evaluator",
+        "Inspect evidence",
+        "Prioritize failure",
+        "Export report"
+      ],
+      "frameworks": [
+        "Python",
+        "Promptfoo",
+        "Ragas",
+        "Arize Phoenix",
+        "OpenTelemetry"
+      ],
+      "architecture": "Dataset → runner → deterministic/model evaluators → report store → review UI",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Evaluation design",
+        "Python testing",
+        "Observability",
+        "Safety analysis"
+      ],
+      "evaluation": [
+        "Positive, negative, and edge fixtures",
+        "Deterministic assertions",
+        "Failure taxonomy",
+        "Regression gate"
+      ],
+      "complexity": 2,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 420,
+      "index": 3
+    },
+    {
+      "id": "mcp-resource-auditor",
+      "name": "MCP Resource & Prompt Auditor",
+      "industry": "Agent platforms",
+      "targetUsers": "Platform engineer",
+      "businessProblem": "Inventory server capabilities and flag unsafe descriptions or scopes",
+      "buyerPersona": "Platform engineer",
+      "category": "Agent Protocols",
+      "modality": "Agents + tools",
+      "evidenceIds": [
+        "openai-applied-role",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Schema crawler",
+        "Risk rules",
+        "Diff report"
+      ],
+      "userJourney": [
+        "Discover capability",
+        "Request scoped permission",
+        "Call tool",
+        "Validate result",
+        "Audit or revoke"
+      ],
+      "frameworks": [
+        "MCP",
+        "A2A",
+        "AG-UI",
+        "FastAPI",
+        "TypeScript"
+      ],
+      "architecture": "Agent/client → protocol SDK → permission gateway → tools/resources → audit log",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Protocol integration",
+        "Tool schemas",
+        "Authorization",
+        "Agent UX"
+      ],
+      "evaluation": [
+        "Schema conformance",
+        "Permission denial",
+        "Tool failure recovery",
+        "Audit completeness"
+      ],
+      "complexity": 2,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 420,
+      "index": 12
+    },
+    {
+      "id": "tool-permission-gateway",
+      "name": "Agent Tool Permission Gateway",
+      "industry": "Enterprise AI",
+      "targetUsers": "Security architect",
+      "businessProblem": "Enforce user, tool, argument, and consequence policies",
+      "buyerPersona": "Security architect",
+      "category": "Agent Protocols",
+      "modality": "Agents + tools",
+      "evidenceIds": [
+        "openai-applied-role",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Policy engine",
+        "Consent receipts",
+        "Revocation"
+      ],
+      "userJourney": [
+        "Discover capability",
+        "Request scoped permission",
+        "Call tool",
+        "Validate result",
+        "Audit or revoke"
+      ],
+      "frameworks": [
+        "MCP",
+        "A2A",
+        "AG-UI",
+        "FastAPI",
+        "TypeScript"
+      ],
+      "architecture": "Agent/client → protocol SDK → permission gateway → tools/resources → audit log",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Protocol integration",
+        "Tool schemas",
+        "Authorization",
+        "Agent UX"
+      ],
+      "evaluation": [
+        "Schema conformance",
+        "Permission denial",
+        "Tool failure recovery",
+        "Audit completeness"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 410,
+      "index": 11
+    },
+    {
+      "id": "ops-automation-coordinator",
+      "name": "Human-Gated Operations Coordinator",
+      "industry": "Business operations",
+      "targetUsers": "Operations buyer",
+      "businessProblem": "Coordinate bounded tasks across systems with explicit approval",
+      "buyerPersona": "Operations buyer",
+      "category": "Workflow Automation",
+      "modality": "Events + tools",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Event intake",
+        "Role-bounded agents",
+        "Approval and audit"
+      ],
+      "userJourney": [
+        "Receive event",
+        "Normalize state",
+        "Route tasks",
+        "Pause for approval",
+        "Write and audit"
+      ],
+      "frameworks": [
+        "n8n",
+        "Activepieces",
+        "Trigger.dev",
+        "Dify",
+        "FastAPI"
+      ],
+      "architecture": "Trigger → workflow engine → bounded agents/tools → approval → system adapter",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Workflow design",
+        "API integration",
+        "Idempotency",
+        "Operations UX"
+      ],
+      "evaluation": [
+        "Happy path",
+        "Retries",
+        "Duplicate event",
+        "Approval enforcement",
+        "Recovery"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Interactive Simulation",
+      "github": null,
+      "demo": "#/products",
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 410,
+      "index": 42
+    },
+    {
+      "id": "accessibility-scene-reader",
+      "name": "Private Accessibility Scene Reader",
+      "industry": "Accessibility",
+      "targetUsers": "Accessibility product lead",
+      "businessProblem": "Describe a local image without transmitting it to a server",
+      "buyerPersona": "Accessibility product lead",
+      "category": "Vision & Multimodal",
+      "modality": "Vision / media",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Local inference",
+        "Object summary",
+        "Keyboard/audio UX"
+      ],
+      "userJourney": [
+        "Load local media",
+        "Run inference",
+        "Inspect detections",
+        "Correct result",
+        "Export evidence"
+      ],
+      "frameworks": [
+        "Transformers.js",
+        "ONNX Runtime Web",
+        "OpenCV",
+        "SAM 2",
+        "FFmpeg"
+      ],
+      "architecture": "Browser/local media → preprocessing → ONNX/WebGPU model → postprocessing → UI",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Computer vision",
+        "Browser inference",
+        "Model packaging",
+        "Performance"
+      ],
+      "evaluation": [
+        "Labeled fixture set",
+        "False positive/negative review",
+        "Device performance",
+        "Privacy boundary"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 400,
+      "index": 33
+    },
+    {
+      "id": "pr-review-agent",
+      "name": "Evidence-Linked PR Review Agent",
+      "industry": "Software engineering",
+      "targetUsers": "Engineering manager",
+      "businessProblem": "Find actionable defects and tie each finding to code evidence",
+      "buyerPersona": "Engineering manager",
+      "category": "Developer Agents",
+      "modality": "Code + tools",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "openai-applied-role"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Diff analysis",
+        "Risk rules",
+        "Inline evidence"
+      ],
+      "userJourney": [
+        "Inspect repository",
+        "Form plan",
+        "Propose patch",
+        "Run controlled tests",
+        "Review evidence"
+      ],
+      "frameworks": [
+        "OpenAI Agents SDK",
+        "LangGraph",
+        "MCP",
+        "Playwright",
+        "GitHub Actions"
+      ],
+      "architecture": "Sandboxed agent → repository tools → diff policy → test runner → approval gate",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Code agents",
+        "Sandboxing",
+        "Test automation",
+        "Developer experience"
+      ],
+      "evaluation": [
+        "Patch correctness",
+        "Test quality",
+        "Unsafe command denial",
+        "Rollback and review"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 400,
+      "index": 37
+    },
+    {
+      "id": "marketing-creative-flow",
+      "name": "Governed Creative Workflow",
+      "industry": "Marketing",
+      "targetUsers": "Creative operations lead",
+      "businessProblem": "Move from brief to checked variants and human approval",
+      "buyerPersona": "Creative operations lead",
+      "category": "Workflow Automation",
+      "modality": "Events + tools",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Brief schema",
+        "Variant workflow",
+        "Brand and rights checks"
+      ],
+      "userJourney": [
+        "Receive event",
+        "Normalize state",
+        "Route tasks",
+        "Pause for approval",
+        "Write and audit"
+      ],
+      "frameworks": [
+        "n8n",
+        "Activepieces",
+        "Trigger.dev",
+        "Dify",
+        "FastAPI"
+      ],
+      "architecture": "Trigger → workflow engine → bounded agents/tools → approval → system adapter",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Workflow design",
+        "API integration",
+        "Idempotency",
+        "Operations UX"
+      ],
+      "evaluation": [
+        "Happy path",
+        "Retries",
+        "Duplicate event",
+        "Approval enforcement",
+        "Recovery"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Interactive Simulation",
+      "github": null,
+      "demo": "#/products",
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 400,
+      "index": 44
+    },
+    {
+      "id": "sales-research-flow",
+      "name": "Evidence-Led Sales Research Workflow",
+      "industry": "B2B sales",
+      "targetUsers": "Sales enablement lead",
+      "businessProblem": "Create cited account briefs without autonomous outreach",
+      "buyerPersona": "Sales enablement lead",
+      "category": "Workflow Automation",
+      "modality": "Events + tools",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Source policy",
+        "Evidence ledger",
+        "CRM-ready review"
+      ],
+      "userJourney": [
+        "Receive event",
+        "Normalize state",
+        "Route tasks",
+        "Pause for approval",
+        "Write and audit"
+      ],
+      "frameworks": [
+        "n8n",
+        "Activepieces",
+        "Trigger.dev",
+        "Dify",
+        "FastAPI"
+      ],
+      "architecture": "Trigger → workflow engine → bounded agents/tools → approval → system adapter",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Workflow design",
+        "API integration",
+        "Idempotency",
+        "Operations UX"
+      ],
+      "evaluation": [
+        "Happy path",
+        "Retries",
+        "Duplicate event",
+        "Approval enforcement",
+        "Recovery"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Interactive Simulation",
+      "github": null,
+      "demo": "#/products",
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 400,
+      "index": 45
+    },
+    {
+      "id": "procurement-triage",
+      "name": "Procurement Request Triage Agent",
+      "industry": "Procurement",
+      "targetUsers": "Procurement operations lead",
+      "businessProblem": "Classify requests and enforce approval thresholds",
+      "buyerPersona": "Procurement operations lead",
+      "category": "Workflow Automation",
+      "modality": "Events + tools",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Request schema",
+        "Policy route",
+        "Approval gate"
+      ],
+      "userJourney": [
+        "Receive event",
+        "Normalize state",
+        "Route tasks",
+        "Pause for approval",
+        "Write and audit"
+      ],
+      "frameworks": [
+        "n8n",
+        "Activepieces",
+        "Trigger.dev",
+        "Dify",
+        "FastAPI"
+      ],
+      "architecture": "Trigger → workflow engine → bounded agents/tools → approval → system adapter",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Workflow design",
+        "API integration",
+        "Idempotency",
+        "Operations UX"
+      ],
+      "evaluation": [
+        "Happy path",
+        "Retries",
+        "Duplicate event",
+        "Approval enforcement",
+        "Recovery"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 400,
+      "index": 48
+    },
+    {
+      "id": "pii-redaction-evaluator",
+      "name": "PII Redaction Quality Lab",
+      "industry": "Regulated operations",
+      "targetUsers": "Security buyer",
+      "businessProblem": "Measure privacy filters before traces or documents leave a system",
+      "buyerPersona": "Security buyer",
+      "category": "Evaluation & Safety",
+      "modality": "Text + traces",
+      "evidenceIds": [
+        "langchain-2026",
+        "upwork-engineer-job"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Synthetic PII corpus",
+        "Redaction compare",
+        "Leakage report"
+      ],
+      "userJourney": [
+        "Load test fixture",
+        "Execute evaluator",
+        "Inspect evidence",
+        "Prioritize failure",
+        "Export report"
+      ],
+      "frameworks": [
+        "Python",
+        "Promptfoo",
+        "Ragas",
+        "Arize Phoenix",
+        "OpenTelemetry"
+      ],
+      "architecture": "Dataset → runner → deterministic/model evaluators → report store → review UI",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Evaluation design",
+        "Python testing",
+        "Observability",
+        "Safety analysis"
+      ],
+      "evaluation": [
+        "Positive, negative, and edge fixtures",
+        "Deterministic assertions",
+        "Failure taxonomy",
+        "Regression gate"
+      ],
+      "complexity": 2,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 390,
+      "index": 6
+    },
+    {
+      "id": "policy-copilot",
+      "name": "Regulated Policy Copilot",
+      "industry": "Banking / insurance",
+      "targetUsers": "Compliance operations lead",
+      "businessProblem": "Answer policy questions with access-aware citations and abstention",
+      "buyerPersona": "Compliance operations lead",
+      "category": "RAG & Search",
+      "modality": "Text + retrieval",
+      "evidenceIds": [
+        "upwork-agent-job",
+        "upwork-engineer-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "ACL retrieval",
+        "Policy versioning",
+        "Answer approval"
+      ],
+      "userJourney": [
+        "Choose corpus",
+        "Ask question",
+        "Retrieve and rerank",
+        "Answer with citations",
+        "Evaluate or abstain"
+      ],
+      "frameworks": [
+        "LlamaIndex",
+        "Haystack",
+        "Qdrant",
+        "pgvector",
+        "Ragas"
+      ],
+      "architecture": "Ingestion → chunks/metadata → vector/keyword retrieval → reranker → answer/evals",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Retrieval engineering",
+        "Citation UX",
+        "Data pipelines",
+        "RAG evaluation"
+      ],
+      "evaluation": [
+        "Retrieval recall",
+        "Citation support",
+        "Faithfulness",
+        "Unanswerable queries",
+        "Freshness"
+      ],
+      "complexity": 4,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 390,
+      "index": 19
+    },
+    {
+      "id": "a2a-incident-coordinator",
+      "name": "A2A Incident Coordination Mesh",
+      "industry": "IT operations",
+      "targetUsers": "IT operations lead",
+      "businessProblem": "Coordinate specialist agents across an incident lifecycle",
+      "buyerPersona": "IT operations lead",
+      "category": "Agent Protocols",
+      "modality": "Agents + tools",
+      "evidenceIds": [
+        "openai-applied-role",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Agent cards",
+        "Task delegation",
+        "Human incident commander"
+      ],
+      "userJourney": [
+        "Discover capability",
+        "Request scoped permission",
+        "Call tool",
+        "Validate result",
+        "Audit or revoke"
+      ],
+      "frameworks": [
+        "MCP",
+        "A2A",
+        "AG-UI",
+        "FastAPI",
+        "TypeScript"
+      ],
+      "architecture": "Agent/client → protocol SDK → permission gateway → tools/resources → audit log",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Protocol integration",
+        "Tool schemas",
+        "Authorization",
+        "Agent UX"
+      ],
+      "evaluation": [
+        "Schema conformance",
+        "Permission denial",
+        "Tool failure recovery",
+        "Audit completeness"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 8
+    },
+    {
+      "id": "contract-clause-research",
+      "name": "Contract Clause Research Assistant",
+      "industry": "Legal operations",
+      "targetUsers": "Legal operations lead",
+      "businessProblem": "Compare clauses and evidence without making legal decisions",
+      "buyerPersona": "Legal operations lead",
+      "category": "RAG & Search",
+      "modality": "Text + retrieval",
+      "evidenceIds": [
+        "upwork-agent-job",
+        "upwork-engineer-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Clause extraction",
+        "Similarity search",
+        "Source compare"
+      ],
+      "userJourney": [
+        "Choose corpus",
+        "Ask question",
+        "Retrieve and rerank",
+        "Answer with citations",
+        "Evaluate or abstain"
+      ],
+      "frameworks": [
+        "LlamaIndex",
+        "Haystack",
+        "Qdrant",
+        "pgvector",
+        "Ragas"
+      ],
+      "architecture": "Ingestion → chunks/metadata → vector/keyword retrieval → reranker → answer/evals",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Retrieval engineering",
+        "Citation UX",
+        "Data pipelines",
+        "RAG evaluation"
+      ],
+      "evaluation": [
+        "Retrieval recall",
+        "Citation support",
+        "Faithfulness",
+        "Unanswerable queries",
+        "Freshness"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 21
+    },
+    {
+      "id": "logistics-doc-pack",
+      "name": "Logistics Document Pack Validator",
+      "industry": "Logistics",
+      "targetUsers": "Freight operations lead",
+      "businessProblem": "Validate invoice, packing list, and bill-of-lading consistency",
+      "buyerPersona": "Freight operations lead",
+      "category": "Document AI",
+      "modality": "Documents + vision",
+      "evidenceIds": [
+        "upwork-2026",
+        "mckinsey-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Document matching",
+        "Quantity rules",
+        "Exception queue"
+      ],
+      "userJourney": [
+        "Receive document",
+        "Classify and extract",
+        "Validate schema",
+        "Review exception",
+        "Export approved record"
+      ],
+      "frameworks": [
+        "Pydantic AI",
+        "PaddleOCR",
+        "Docling",
+        "ONNX Runtime",
+        "FastAPI"
+      ],
+      "architecture": "Secure intake → OCR/VLM → typed schema → validators → review queue",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "OCR pipelines",
+        "Structured outputs",
+        "Validation",
+        "Human review"
+      ],
+      "evaluation": [
+        "Field accuracy",
+        "Confidence calibration",
+        "Malformed input",
+        "Cross-field validation"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 27
+    },
+    {
+      "id": "manufacturing-quality-docs",
+      "name": "Manufacturing Quality Record Inspector",
+      "industry": "Manufacturing",
+      "targetUsers": "Quality operations lead",
+      "businessProblem": "Validate quality forms and detect incomplete inspection evidence",
+      "buyerPersona": "Quality operations lead",
+      "category": "Document AI",
+      "modality": "Documents + vision",
+      "evidenceIds": [
+        "upwork-2026",
+        "mckinsey-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Form extraction",
+        "Specification checks",
+        "Nonconformance route"
+      ],
+      "userJourney": [
+        "Receive document",
+        "Classify and extract",
+        "Validate schema",
+        "Review exception",
+        "Export approved record"
+      ],
+      "frameworks": [
+        "Pydantic AI",
+        "PaddleOCR",
+        "Docling",
+        "ONNX Runtime",
+        "FastAPI"
+      ],
+      "architecture": "Secure intake → OCR/VLM → typed schema → validators → review queue",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "OCR pipelines",
+        "Structured outputs",
+        "Validation",
+        "Human review"
+      ],
+      "evaluation": [
+        "Field accuracy",
+        "Confidence calibration",
+        "Malformed input",
+        "Cross-field validation"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 29
+    },
+    {
+      "id": "retail-shelf-auditor",
+      "name": "Retail Shelf Availability Auditor",
+      "industry": "Retail",
+      "targetUsers": "Retail operations lead",
+      "businessProblem": "Detect shelf gaps from store images and route review",
+      "buyerPersona": "Retail operations lead",
+      "category": "Vision & Multimodal",
+      "modality": "Vision / media",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Object detection",
+        "Planogram compare",
+        "Exception review"
+      ],
+      "userJourney": [
+        "Load local media",
+        "Run inference",
+        "Inspect detections",
+        "Correct result",
+        "Export evidence"
+      ],
+      "frameworks": [
+        "Transformers.js",
+        "ONNX Runtime Web",
+        "OpenCV",
+        "SAM 2",
+        "FFmpeg"
+      ],
+      "architecture": "Browser/local media → preprocessing → ONNX/WebGPU model → postprocessing → UI",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Computer vision",
+        "Browser inference",
+        "Model packaging",
+        "Performance"
+      ],
+      "evaluation": [
+        "Labeled fixture set",
+        "False positive/negative review",
+        "Device performance",
+        "Privacy boundary"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 31
+    },
+    {
+      "id": "media-rights-review",
+      "name": "Generated Media Rights Review Assistant",
+      "industry": "Media",
+      "targetUsers": "Creative operations lead",
+      "businessProblem": "Track source assets, model provenance, and review requirements",
+      "buyerPersona": "Creative operations lead",
+      "category": "Vision & Multimodal",
+      "modality": "Vision / media",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Provenance ledger",
+        "Similarity flag",
+        "Approval record"
+      ],
+      "userJourney": [
+        "Load local media",
+        "Run inference",
+        "Inspect detections",
+        "Correct result",
+        "Export evidence"
+      ],
+      "frameworks": [
+        "Transformers.js",
+        "ONNX Runtime Web",
+        "OpenCV",
+        "SAM 2",
+        "FFmpeg"
+      ],
+      "architecture": "Browser/local media → preprocessing → ONNX/WebGPU model → postprocessing → UI",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Computer vision",
+        "Browser inference",
+        "Model packaging",
+        "Performance"
+      ],
+      "evaluation": [
+        "Labeled fixture set",
+        "False positive/negative review",
+        "Device performance",
+        "Privacy boundary"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 35
+    },
+    {
+      "id": "developer-agent",
+      "name": "Controlled AI Developer Agent",
+      "industry": "Software engineering",
+      "targetUsers": "Engineering lead",
+      "businessProblem": "Inspect code, propose patches, and run allowlisted tests with review",
+      "buyerPersona": "Engineering lead",
+      "category": "Developer Agents",
+      "modality": "Code + tools",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "openai-applied-role"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Repository inspector",
+        "Patch planner",
+        "Controlled test runner"
+      ],
+      "userJourney": [
+        "Inspect repository",
+        "Form plan",
+        "Propose patch",
+        "Run controlled tests",
+        "Review evidence"
+      ],
+      "frameworks": [
+        "OpenAI Agents SDK",
+        "LangGraph",
+        "MCP",
+        "Playwright",
+        "GitHub Actions"
+      ],
+      "architecture": "Sandboxed agent → repository tools → diff policy → test runner → approval gate",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Code agents",
+        "Sandboxing",
+        "Test automation",
+        "Developer experience"
+      ],
+      "evaluation": [
+        "Patch correctness",
+        "Test quality",
+        "Unsafe command denial",
+        "Rollback and review"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "In Build Queue",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 36
+    },
+    {
+      "id": "docs-to-code-agent",
+      "name": "Technical Spec-to-Code Traceability Agent",
+      "industry": "Software engineering",
+      "targetUsers": "Technical PM",
+      "businessProblem": "Connect requirements to implementation, tests, and review gaps",
+      "buyerPersona": "Technical PM",
+      "category": "Developer Agents",
+      "modality": "Code + tools",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "openai-applied-role"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Spec parser",
+        "Traceability graph",
+        "Acceptance audit"
+      ],
+      "userJourney": [
+        "Inspect repository",
+        "Form plan",
+        "Propose patch",
+        "Run controlled tests",
+        "Review evidence"
+      ],
+      "frameworks": [
+        "OpenAI Agents SDK",
+        "LangGraph",
+        "MCP",
+        "Playwright",
+        "GitHub Actions"
+      ],
+      "architecture": "Sandboxed agent → repository tools → diff policy → test runner → approval gate",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Code agents",
+        "Sandboxing",
+        "Test automation",
+        "Developer experience"
+      ],
+      "evaluation": [
+        "Patch correctness",
+        "Test quality",
+        "Unsafe command denial",
+        "Rollback and review"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 41
+    },
+    {
+      "id": "finance-close-assistant",
+      "name": "Finance Close Exception Assistant",
+      "industry": "Finance",
+      "targetUsers": "Controller / finance ops",
+      "businessProblem": "Collect close evidence and route unresolved reconciliations",
+      "buyerPersona": "Controller / finance ops",
+      "category": "Workflow Automation",
+      "modality": "Events + tools",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Checklist engine",
+        "Evidence collection",
+        "Approval trail"
+      ],
+      "userJourney": [
+        "Receive event",
+        "Normalize state",
+        "Route tasks",
+        "Pause for approval",
+        "Write and audit"
+      ],
+      "frameworks": [
+        "n8n",
+        "Activepieces",
+        "Trigger.dev",
+        "Dify",
+        "FastAPI"
+      ],
+      "architecture": "Trigger → workflow engine → bounded agents/tools → approval → system adapter",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Workflow design",
+        "API integration",
+        "Idempotency",
+        "Operations UX"
+      ],
+      "evaluation": [
+        "Happy path",
+        "Retries",
+        "Duplicate event",
+        "Approval enforcement",
+        "Recovery"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 46
+    },
+    {
+      "id": "education-tutor",
+      "name": "Evidence-Grounded Learning Tutor",
+      "industry": "Education",
+      "targetUsers": "Learning product lead",
+      "businessProblem": "Practice concepts with citations, hints, and misconception checks",
+      "buyerPersona": "Learning product lead",
+      "category": "Industry Applications",
+      "modality": "Mixed",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Curriculum RAG",
+        "Hint policy",
+        "Mastery model"
+      ],
+      "userJourney": [
+        "Frame domain task",
+        "Gather governed context",
+        "Run bounded assistance",
+        "Human decision",
+        "Measure outcome"
+      ],
+      "frameworks": [
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "OpenTelemetry"
+      ],
+      "architecture": "Domain UI → policy/orchestration → data/tools/models → human checkpoint → audit",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Domain discovery",
+        "Applied AI architecture",
+        "Product metrics",
+        "Risk controls"
+      ],
+      "evaluation": [
+        "Domain acceptance cases",
+        "Safety and policy checks",
+        "Human override",
+        "Outcome instrumentation"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 54
+    },
+    {
+      "id": "retail-recommendation-lab",
+      "name": "Explainable Retail Recommendation Lab",
+      "industry": "Retail",
+      "targetUsers": "Commerce product lead",
+      "businessProblem": "Compare recommendation strategies and business objectives",
+      "buyerPersona": "Commerce product lead",
+      "category": "Industry Applications",
+      "modality": "Mixed",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Candidate generation",
+        "Ranking",
+        "Reason explorer"
+      ],
+      "userJourney": [
+        "Frame domain task",
+        "Gather governed context",
+        "Run bounded assistance",
+        "Human decision",
+        "Measure outcome"
+      ],
+      "frameworks": [
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "OpenTelemetry"
+      ],
+      "architecture": "Domain UI → policy/orchestration → data/tools/models → human checkpoint → audit",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Domain discovery",
+        "Applied AI architecture",
+        "Product metrics",
+        "Risk controls"
+      ],
+      "evaluation": [
+        "Domain acceptance cases",
+        "Safety and policy checks",
+        "Human override",
+        "Outcome instrumentation"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 59
+    },
+    {
+      "id": "logistics-eta-explainer",
+      "name": "Logistics ETA Exception Explainer",
+      "industry": "Logistics",
+      "targetUsers": "Transport operations lead",
+      "businessProblem": "Explain changing ETAs and recommended operator action",
+      "buyerPersona": "Transport operations lead",
+      "category": "Industry Applications",
+      "modality": "Mixed",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "ETA signals",
+        "Reason model",
+        "Exception workflow"
+      ],
+      "userJourney": [
+        "Frame domain task",
+        "Gather governed context",
+        "Run bounded assistance",
+        "Human decision",
+        "Measure outcome"
+      ],
+      "frameworks": [
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "OpenTelemetry"
+      ],
+      "architecture": "Domain UI → policy/orchestration → data/tools/models → human checkpoint → audit",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Domain discovery",
+        "Applied AI architecture",
+        "Product metrics",
+        "Risk controls"
+      ],
+      "evaluation": [
+        "Domain acceptance cases",
+        "Safety and policy checks",
+        "Human override",
+        "Outcome instrumentation"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 61
+    },
+    {
+      "id": "media-repurpose-workbench",
+      "name": "Multimodal Media Repurposing Workbench",
+      "industry": "Media",
+      "targetUsers": "Media operations lead",
+      "businessProblem": "Turn long media into reviewed channel assets with provenance",
+      "buyerPersona": "Media operations lead",
+      "category": "Industry Applications",
+      "modality": "Mixed",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Transcript segments",
+        "Clip proposal",
+        "Rights checklist"
+      ],
+      "userJourney": [
+        "Frame domain task",
+        "Gather governed context",
+        "Run bounded assistance",
+        "Human decision",
+        "Measure outcome"
+      ],
+      "frameworks": [
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "OpenTelemetry"
+      ],
+      "architecture": "Domain UI → policy/orchestration → data/tools/models → human checkpoint → audit",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Domain discovery",
+        "Applied AI architecture",
+        "Product metrics",
+        "Risk controls"
+      ],
+      "evaluation": [
+        "Domain acceptance cases",
+        "Safety and policy checks",
+        "Human override",
+        "Outcome instrumentation"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 63
+    },
+    {
+      "id": "accessible-form-agent",
+      "name": "Accessible Form Completion Coach",
+      "industry": "Accessibility / public services",
+      "targetUsers": "Service design lead",
+      "businessProblem": "Explain complex forms without submitting on the user’s behalf",
+      "buyerPersona": "Service design lead",
+      "category": "Industry Applications",
+      "modality": "Mixed",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Plain-language guide",
+        "Field validation",
+        "Screen-reader UX"
+      ],
+      "userJourney": [
+        "Frame domain task",
+        "Gather governed context",
+        "Run bounded assistance",
+        "Human decision",
+        "Measure outcome"
+      ],
+      "frameworks": [
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "OpenTelemetry"
+      ],
+      "architecture": "Domain UI → policy/orchestration → data/tools/models → human checkpoint → audit",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Domain discovery",
+        "Applied AI architecture",
+        "Product metrics",
+        "Risk controls"
+      ],
+      "evaluation": [
+        "Domain acceptance cases",
+        "Safety and policy checks",
+        "Human override",
+        "Outcome instrumentation"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 380,
+      "index": 64
+    },
+    {
+      "id": "prompt-injection-lab",
+      "name": "Prompt Injection Red-Team Harness",
+      "industry": "Enterprise AI",
+      "targetUsers": "Security / AI platform lead",
+      "businessProblem": "Test tool and retrieval systems against malicious instructions",
+      "buyerPersona": "Security / AI platform lead",
+      "category": "Evaluation & Safety",
+      "modality": "Text + traces",
+      "evidenceIds": [
+        "langchain-2026",
+        "upwork-engineer-job"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Attack fixtures",
+        "Policy assertions",
+        "Failure replay"
+      ],
+      "userJourney": [
+        "Load test fixture",
+        "Execute evaluator",
+        "Inspect evidence",
+        "Prioritize failure",
+        "Export report"
+      ],
+      "frameworks": [
+        "Python",
+        "Promptfoo",
+        "Ragas",
+        "Arize Phoenix",
+        "OpenTelemetry"
+      ],
+      "architecture": "Dataset → runner → deterministic/model evaluators → report store → review UI",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Evaluation design",
+        "Python testing",
+        "Observability",
+        "Safety analysis"
+      ],
+      "evaluation": [
+        "Positive, negative, and edge fixtures",
+        "Deterministic assertions",
+        "Failure taxonomy",
+        "Regression gate"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 370,
+      "index": 4
+    },
+    {
+      "id": "employee-onboarding-flow",
+      "name": "Employee Onboarding Workflow Copilot",
+      "industry": "HR operations",
+      "targetUsers": "People operations lead",
+      "businessProblem": "Coordinate tasks without exposing unnecessary employee data",
+      "buyerPersona": "People operations lead",
+      "category": "Workflow Automation",
+      "modality": "Events + tools",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-agent-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Role checklist",
+        "Tool permissions",
+        "Exception tracking"
+      ],
+      "userJourney": [
+        "Receive event",
+        "Normalize state",
+        "Route tasks",
+        "Pause for approval",
+        "Write and audit"
+      ],
+      "frameworks": [
+        "n8n",
+        "Activepieces",
+        "Trigger.dev",
+        "Dify",
+        "FastAPI"
+      ],
+      "architecture": "Trigger → workflow engine → bounded agents/tools → approval → system adapter",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Workflow design",
+        "API integration",
+        "Idempotency",
+        "Operations UX"
+      ],
+      "evaluation": [
+        "Happy path",
+        "Retries",
+        "Duplicate event",
+        "Approval enforcement",
+        "Recovery"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 370,
+      "index": 47
+    },
+    {
+      "id": "private-local-assistant",
+      "name": "Private Local Knowledge Assistant",
+      "industry": "Professional services",
+      "targetUsers": "Privacy-conscious professional",
+      "businessProblem": "Summarize sensitive local notes without cloud inference",
+      "buyerPersona": "Privacy-conscious professional",
+      "category": "Local & Edge AI",
+      "modality": "Local inference",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "netlify-free"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Local model",
+        "Local index",
+        "Encrypted workspace"
+      ],
+      "userJourney": [
+        "Load local model",
+        "Provide private input",
+        "Infer on device",
+        "Inspect resource use",
+        "Save local result"
+      ],
+      "frameworks": [
+        "Ollama",
+        "llama.cpp",
+        "WebLLM",
+        "Transformers.js",
+        "ONNX Runtime"
+      ],
+      "architecture": "Browser/desktop runtime → local model → device compute → private local state",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Local inference",
+        "Quantization",
+        "WebGPU",
+        "Privacy engineering"
+      ],
+      "evaluation": [
+        "Offline behavior",
+        "Memory use",
+        "Latency by device",
+        "Model-quality boundary"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 370,
+      "index": 49
+    },
+    {
+      "id": "webgpu-image-classifier",
+      "name": "WebGPU Product Image Classifier",
+      "industry": "Retail / media",
+      "targetUsers": "Digital operations lead",
+      "businessProblem": "Classify images in-browser with no upload",
+      "buyerPersona": "Digital operations lead",
+      "category": "Local & Edge AI",
+      "modality": "Local inference",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "netlify-free"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Browser model",
+        "Batch queue",
+        "Confidence review"
+      ],
+      "userJourney": [
+        "Load local model",
+        "Provide private input",
+        "Infer on device",
+        "Inspect resource use",
+        "Save local result"
+      ],
+      "frameworks": [
+        "Ollama",
+        "llama.cpp",
+        "WebLLM",
+        "Transformers.js",
+        "ONNX Runtime"
+      ],
+      "architecture": "Browser/desktop runtime → local model → device compute → private local state",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Local inference",
+        "Quantization",
+        "WebGPU",
+        "Privacy engineering"
+      ],
+      "evaluation": [
+        "Offline behavior",
+        "Memory use",
+        "Latency by device",
+        "Model-quality boundary"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 370,
+      "index": 51
+    },
+    {
+      "id": "pipecat-support-agent",
+      "name": "Pipecat Voice Support Agent",
+      "industry": "Customer service",
+      "targetUsers": "Support operations buyer",
+      "businessProblem": "Resolve a bounded support request with a real voice pipeline",
+      "buyerPersona": "Support operations buyer",
+      "category": "Voice & Realtime",
+      "modality": "Voice",
+      "evidenceIds": [
+        "livekit-pm",
+        "health-agent-pm"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Interruptible call",
+        "Read-only tool",
+        "Contextual handoff"
+      ],
+      "userJourney": [
+        "Connect call",
+        "Detect turn",
+        "Reason with context",
+        "Execute bounded tool",
+        "Resolve or hand off"
+      ],
+      "frameworks": [
+        "Pipecat",
+        "LiveKit Agents",
+        "whisper.cpp",
+        "Piper",
+        "FastAPI"
+      ],
+      "architecture": "WebRTC/telephony → realtime pipeline → model/tools → handoff → traces",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Realtime systems",
+        "Voice UX",
+        "Latency testing",
+        "Tool execution"
+      ],
+      "evaluation": [
+        "Turn-taking",
+        "Interruption",
+        "Latency budget",
+        "Tool correctness",
+        "Escalation quality"
+      ],
+      "complexity": 4,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "In Build Queue",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 360,
+      "index": 13
+    },
+    {
+      "id": "field-service-copilot",
+      "name": "Field Service Knowledge Copilot",
+      "industry": "Manufacturing",
+      "targetUsers": "Service engineering lead",
+      "businessProblem": "Find repair steps and parts evidence at the point of work",
+      "buyerPersona": "Service engineering lead",
+      "category": "RAG & Search",
+      "modality": "Text + retrieval",
+      "evidenceIds": [
+        "upwork-agent-job",
+        "upwork-engineer-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Manual ingestion",
+        "Asset filters",
+        "Offline cache"
+      ],
+      "userJourney": [
+        "Choose corpus",
+        "Ask question",
+        "Retrieve and rerank",
+        "Answer with citations",
+        "Evaluate or abstain"
+      ],
+      "frameworks": [
+        "LlamaIndex",
+        "Haystack",
+        "Qdrant",
+        "pgvector",
+        "Ragas"
+      ],
+      "architecture": "Ingestion → chunks/metadata → vector/keyword retrieval → reranker → answer/evals",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Retrieval engineering",
+        "Citation UX",
+        "Data pipelines",
+        "RAG evaluation"
+      ],
+      "evaluation": [
+        "Retrieval recall",
+        "Citation support",
+        "Faithfulness",
+        "Unanswerable queries",
+        "Freshness"
+      ],
+      "complexity": 4,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 360,
+      "index": 20
+    },
+    {
+      "id": "insurance-claims-intake",
+      "name": "Insurance Claims Intake Agent",
+      "industry": "Insurance",
+      "targetUsers": "Claims operations lead",
+      "businessProblem": "Structure claim documents and identify missing evidence",
+      "buyerPersona": "Claims operations lead",
+      "category": "Document AI",
+      "modality": "Documents + vision",
+      "evidenceIds": [
+        "upwork-2026",
+        "mckinsey-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Claim classification",
+        "Schema extraction",
+        "Evidence checklist"
+      ],
+      "userJourney": [
+        "Receive document",
+        "Classify and extract",
+        "Validate schema",
+        "Review exception",
+        "Export approved record"
+      ],
+      "frameworks": [
+        "Pydantic AI",
+        "PaddleOCR",
+        "Docling",
+        "ONNX Runtime",
+        "FastAPI"
+      ],
+      "architecture": "Secure intake → OCR/VLM → typed schema → validators → review queue",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "OCR pipelines",
+        "Structured outputs",
+        "Validation",
+        "Human review"
+      ],
+      "evaluation": [
+        "Field accuracy",
+        "Confidence calibration",
+        "Malformed input",
+        "Cross-field validation"
+      ],
+      "complexity": 4,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 360,
+      "index": 25
+    },
+    {
+      "id": "kyc-document-check",
+      "name": "KYC Document Consistency Checker",
+      "industry": "Financial services",
+      "targetUsers": "Onboarding operations lead",
+      "businessProblem": "Compare identity documents and surface mismatches for review",
+      "buyerPersona": "Onboarding operations lead",
+      "category": "Document AI",
+      "modality": "Documents + vision",
+      "evidenceIds": [
+        "upwork-2026",
+        "mckinsey-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Document OCR",
+        "Cross-document rules",
+        "Reviewer audit"
+      ],
+      "userJourney": [
+        "Receive document",
+        "Classify and extract",
+        "Validate schema",
+        "Review exception",
+        "Export approved record"
+      ],
+      "frameworks": [
+        "Pydantic AI",
+        "PaddleOCR",
+        "Docling",
+        "ONNX Runtime",
+        "FastAPI"
+      ],
+      "architecture": "Secure intake → OCR/VLM → typed schema → validators → review queue",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "OCR pipelines",
+        "Structured outputs",
+        "Validation",
+        "Human review"
+      ],
+      "evaluation": [
+        "Field accuracy",
+        "Confidence calibration",
+        "Malformed input",
+        "Cross-field validation"
+      ],
+      "complexity": 4,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 360,
+      "index": 26
+    },
+    {
+      "id": "travel-planning-copilot",
+      "name": "Constraint-Aware Travel Planning Copilot",
+      "industry": "Travel",
+      "targetUsers": "Travel product lead",
+      "businessProblem": "Plan itineraries with explicit constraints and live-data boundaries",
+      "buyerPersona": "Travel product lead",
+      "category": "Industry Applications",
+      "modality": "Mixed",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Preference model",
+        "Search adapters",
+        "Conflict resolver"
+      ],
+      "userJourney": [
+        "Frame domain task",
+        "Gather governed context",
+        "Run bounded assistance",
+        "Human decision",
+        "Measure outcome"
+      ],
+      "frameworks": [
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "OpenTelemetry"
+      ],
+      "architecture": "Domain UI → policy/orchestration → data/tools/models → human checkpoint → audit",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Domain discovery",
+        "Applied AI architecture",
+        "Product metrics",
+        "Risk controls"
+      ],
+      "evaluation": [
+        "Domain acceptance cases",
+        "Safety and policy checks",
+        "Human override",
+        "Outcome instrumentation"
+      ],
+      "complexity": 4,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 360,
+      "index": 58
+    },
+    {
+      "id": "voice-eval-suite",
+      "name": "Realtime Voice Agent Evaluation Suite",
+      "industry": "Contact centers",
+      "targetUsers": "Voice platform lead",
+      "businessProblem": "Measure interruption, latency, tool calls, and handoff quality",
+      "buyerPersona": "Voice platform lead",
+      "category": "Evaluation & Safety",
+      "modality": "Text + traces",
+      "evidenceIds": [
+        "langchain-2026",
+        "upwork-engineer-job"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Audio scenario runner",
+        "Latency trace",
+        "Handoff scorecard"
+      ],
+      "userJourney": [
+        "Load test fixture",
+        "Execute evaluator",
+        "Inspect evidence",
+        "Prioritize failure",
+        "Export report"
+      ],
+      "frameworks": [
+        "Python",
+        "Promptfoo",
+        "Ragas",
+        "Arize Phoenix",
+        "OpenTelemetry"
+      ],
+      "architecture": "Dataset → runner → deterministic/model evaluators → report store → review UI",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Evaluation design",
+        "Python testing",
+        "Observability",
+        "Safety analysis"
+      ],
+      "evaluation": [
+        "Positive, negative, and edge fixtures",
+        "Deterministic assertions",
+        "Failure taxonomy",
+        "Regression gate"
+      ],
+      "complexity": 3,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 350,
+      "index": 2
+    },
+    {
+      "id": "agent-cost-router",
+      "name": "Model Quality–Cost Router",
+      "industry": "AI platform teams",
+      "targetUsers": "Platform PM",
+      "businessProblem": "Select a model tier using measured quality, latency, and cost",
+      "buyerPersona": "Platform PM",
+      "category": "Evaluation & Safety",
+      "modality": "Text + traces",
+      "evidenceIds": [
+        "langchain-2026",
+        "upwork-engineer-job"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Benchmark matrix",
+        "Routing policy",
+        "Budget alerts"
+      ],
+      "userJourney": [
+        "Load test fixture",
+        "Execute evaluator",
+        "Inspect evidence",
+        "Prioritize failure",
+        "Export report"
+      ],
+      "frameworks": [
+        "Python",
+        "Promptfoo",
+        "Ragas",
+        "Arize Phoenix",
+        "OpenTelemetry"
+      ],
+      "architecture": "Dataset → runner → deterministic/model evaluators → report store → review UI",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Evaluation design",
+        "Python testing",
+        "Observability",
+        "Safety analysis"
+      ],
+      "evaluation": [
+        "Positive, negative, and edge fixtures",
+        "Deterministic assertions",
+        "Failure taxonomy",
+        "Regression gate"
+      ],
+      "complexity": 3,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 350,
+      "index": 5
+    },
+    {
+      "id": "travel-damage-triage",
+      "name": "Travel Damage Evidence Triage",
+      "industry": "Travel",
+      "targetUsers": "Claims/service lead",
+      "businessProblem": "Organize baggage or vehicle damage photos for human review",
+      "buyerPersona": "Claims/service lead",
+      "category": "Vision & Multimodal",
+      "modality": "Vision / media",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Image quality check",
+        "Damage regions",
+        "Evidence pack"
+      ],
+      "userJourney": [
+        "Load local media",
+        "Run inference",
+        "Inspect detections",
+        "Correct result",
+        "Export evidence"
+      ],
+      "frameworks": [
+        "Transformers.js",
+        "ONNX Runtime Web",
+        "OpenCV",
+        "SAM 2",
+        "FFmpeg"
+      ],
+      "architecture": "Browser/local media → preprocessing → ONNX/WebGPU model → postprocessing → UI",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Computer vision",
+        "Browser inference",
+        "Model packaging",
+        "Performance"
+      ],
+      "evaluation": [
+        "Labeled fixture set",
+        "False positive/negative review",
+        "Device performance",
+        "Privacy boundary"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 350,
+      "index": 34
+    },
+    {
+      "id": "test-generation-agent",
+      "name": "Behavioral Test Generation Agent",
+      "industry": "Software engineering",
+      "targetUsers": "QA lead",
+      "businessProblem": "Generate tests from requirements and expose coverage assumptions",
+      "buyerPersona": "QA lead",
+      "category": "Developer Agents",
+      "modality": "Code + tools",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "openai-applied-role"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Requirement parser",
+        "Test proposal",
+        "Mutation check"
+      ],
+      "userJourney": [
+        "Inspect repository",
+        "Form plan",
+        "Propose patch",
+        "Run controlled tests",
+        "Review evidence"
+      ],
+      "frameworks": [
+        "OpenAI Agents SDK",
+        "LangGraph",
+        "MCP",
+        "Playwright",
+        "GitHub Actions"
+      ],
+      "architecture": "Sandboxed agent → repository tools → diff policy → test runner → approval gate",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Code agents",
+        "Sandboxing",
+        "Test automation",
+        "Developer experience"
+      ],
+      "evaluation": [
+        "Patch correctness",
+        "Test quality",
+        "Unsafe command denial",
+        "Rollback and review"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 350,
+      "index": 38
+    },
+    {
+      "id": "api-migration-agent",
+      "name": "API Migration Planning Agent",
+      "industry": "Developer platforms",
+      "targetUsers": "Platform lead",
+      "businessProblem": "Analyze breaking changes and produce a tested migration patch plan",
+      "buyerPersona": "Platform lead",
+      "category": "Developer Agents",
+      "modality": "Code + tools",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "openai-applied-role"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Dependency scan",
+        "Codemod proposal",
+        "Compatibility tests"
+      ],
+      "userJourney": [
+        "Inspect repository",
+        "Form plan",
+        "Propose patch",
+        "Run controlled tests",
+        "Review evidence"
+      ],
+      "frameworks": [
+        "OpenAI Agents SDK",
+        "LangGraph",
+        "MCP",
+        "Playwright",
+        "GitHub Actions"
+      ],
+      "architecture": "Sandboxed agent → repository tools → diff policy → test runner → approval gate",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Code agents",
+        "Sandboxing",
+        "Test automation",
+        "Developer experience"
+      ],
+      "evaluation": [
+        "Patch correctness",
+        "Test quality",
+        "Unsafe command denial",
+        "Rollback and review"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 350,
+      "index": 40
+    },
+    {
+      "id": "telecom-plan-advisor",
+      "name": "Transparent Telecom Plan Advisor",
+      "industry": "Telecommunications",
+      "targetUsers": "Digital sales lead",
+      "businessProblem": "Compare plans from verified usage and contract rules",
+      "buyerPersona": "Digital sales lead",
+      "category": "Industry Applications",
+      "modality": "Mixed",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Usage analysis",
+        "Plan rules",
+        "Explanation UI"
+      ],
+      "userJourney": [
+        "Frame domain task",
+        "Gather governed context",
+        "Run bounded assistance",
+        "Human decision",
+        "Measure outcome"
+      ],
+      "frameworks": [
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "OpenTelemetry"
+      ],
+      "architecture": "Domain UI → policy/orchestration → data/tools/models → human checkpoint → audit",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Domain discovery",
+        "Applied AI architecture",
+        "Product metrics",
+        "Risk controls"
+      ],
+      "evaluation": [
+        "Domain acceptance cases",
+        "Safety and policy checks",
+        "Human override",
+        "Outcome instrumentation"
+      ],
+      "complexity": 4,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 350,
+      "index": 57
+    },
+    {
+      "id": "defect-vision-inspector",
+      "name": "Visual Defect Triage Workbench",
+      "industry": "Manufacturing",
+      "targetUsers": "Quality engineering lead",
+      "businessProblem": "Classify likely defects and preserve human quality authority",
+      "buyerPersona": "Quality engineering lead",
+      "category": "Vision & Multimodal",
+      "modality": "Vision / media",
+      "evidenceIds": [
+        "upwork-july-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Image capture",
+        "Defect model",
+        "Explainable review"
+      ],
+      "userJourney": [
+        "Load local media",
+        "Run inference",
+        "Inspect detections",
+        "Correct result",
+        "Export evidence"
+      ],
+      "frameworks": [
+        "Transformers.js",
+        "ONNX Runtime Web",
+        "OpenCV",
+        "SAM 2",
+        "FFmpeg"
+      ],
+      "architecture": "Browser/local media → preprocessing → ONNX/WebGPU model → postprocessing → UI",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Computer vision",
+        "Browser inference",
+        "Model packaging",
+        "Performance"
+      ],
+      "evaluation": [
+        "Labeled fixture set",
+        "False positive/negative review",
+        "Device performance",
+        "Privacy boundary"
+      ],
+      "complexity": 5,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 340,
+      "index": 32
+    },
+    {
+      "id": "local-meeting-summarizer",
+      "name": "Local Meeting Note Structurer",
+      "industry": "Knowledge work",
+      "targetUsers": "Team lead",
+      "businessProblem": "Turn transcripts into private decisions and actions",
+      "buyerPersona": "Team lead",
+      "category": "Local & Edge AI",
+      "modality": "Local inference",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "netlify-free"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Local transcription import",
+        "Action extraction",
+        "Private export"
+      ],
+      "userJourney": [
+        "Load local model",
+        "Provide private input",
+        "Infer on device",
+        "Inspect resource use",
+        "Save local result"
+      ],
+      "frameworks": [
+        "Ollama",
+        "llama.cpp",
+        "WebLLM",
+        "Transformers.js",
+        "ONNX Runtime"
+      ],
+      "architecture": "Browser/desktop runtime → local model → device compute → private local state",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Local inference",
+        "Quantization",
+        "WebGPU",
+        "Privacy engineering"
+      ],
+      "evaluation": [
+        "Offline behavior",
+        "Memory use",
+        "Latency by device",
+        "Model-quality boundary"
+      ],
+      "complexity": 3,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 340,
+      "index": 52
+    },
+    {
+      "id": "banking-dispute-assistant",
+      "name": "Banking Dispute Evidence Assistant",
+      "industry": "Banking",
+      "targetUsers": "Disputes operations lead",
+      "businessProblem": "Organize transaction evidence and explain the review process",
+      "buyerPersona": "Disputes operations lead",
+      "category": "Industry Applications",
+      "modality": "Mixed",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Transaction context",
+        "Policy retrieval",
+        "Evidence checklist"
+      ],
+      "userJourney": [
+        "Frame domain task",
+        "Gather governed context",
+        "Run bounded assistance",
+        "Human decision",
+        "Measure outcome"
+      ],
+      "frameworks": [
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "OpenTelemetry"
+      ],
+      "architecture": "Domain UI → policy/orchestration → data/tools/models → human checkpoint → audit",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Domain discovery",
+        "Applied AI architecture",
+        "Product metrics",
+        "Risk controls"
+      ],
+      "evaluation": [
+        "Domain acceptance cases",
+        "Safety and policy checks",
+        "Human override",
+        "Outcome instrumentation"
+      ],
+      "complexity": 5,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 340,
+      "index": 55
+    },
+    {
+      "id": "insurance-fnol-assistant",
+      "name": "First Notice of Loss Assistant",
+      "industry": "Insurance",
+      "targetUsers": "Claims operations lead",
+      "businessProblem": "Capture claim facts safely across chat, voice, and documents",
+      "buyerPersona": "Claims operations lead",
+      "category": "Industry Applications",
+      "modality": "Mixed",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Multimodal intake",
+        "Coverage policy",
+        "Human triage"
+      ],
+      "userJourney": [
+        "Frame domain task",
+        "Gather governed context",
+        "Run bounded assistance",
+        "Human decision",
+        "Measure outcome"
+      ],
+      "frameworks": [
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "OpenTelemetry"
+      ],
+      "architecture": "Domain UI → policy/orchestration → data/tools/models → human checkpoint → audit",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Domain discovery",
+        "Applied AI architecture",
+        "Product metrics",
+        "Risk controls"
+      ],
+      "evaluation": [
+        "Domain acceptance cases",
+        "Safety and policy checks",
+        "Human override",
+        "Outcome instrumentation"
+      ],
+      "complexity": 5,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 340,
+      "index": 56
+    },
+    {
+      "id": "predictive-maintenance-copilot",
+      "name": "Maintenance Evidence Copilot",
+      "industry": "Manufacturing",
+      "targetUsers": "Reliability engineering lead",
+      "businessProblem": "Combine sensor anomalies with manuals and work history",
+      "buyerPersona": "Reliability engineering lead",
+      "category": "Industry Applications",
+      "modality": "Mixed",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Signal summary",
+        "RAG evidence",
+        "Work-order draft"
+      ],
+      "userJourney": [
+        "Frame domain task",
+        "Gather governed context",
+        "Run bounded assistance",
+        "Human decision",
+        "Measure outcome"
+      ],
+      "frameworks": [
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "OpenTelemetry"
+      ],
+      "architecture": "Domain UI → policy/orchestration → data/tools/models → human checkpoint → audit",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Domain discovery",
+        "Applied AI architecture",
+        "Product metrics",
+        "Risk controls"
+      ],
+      "evaluation": [
+        "Domain acceptance cases",
+        "Safety and policy checks",
+        "Human override",
+        "Outcome instrumentation"
+      ],
+      "complexity": 5,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 340,
+      "index": 62
+    },
+    {
+      "id": "telecom-troubleshooter",
+      "name": "Telecom Service Troubleshooter",
+      "industry": "Telecommunications",
+      "targetUsers": "Contact center director",
+      "businessProblem": "Diagnose common connectivity failures before field escalation",
+      "buyerPersona": "Contact center director",
+      "category": "Voice & Realtime",
+      "modality": "Voice",
+      "evidenceIds": [
+        "livekit-pm",
+        "health-agent-pm"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Guided checks",
+        "Line diagnostics adapter",
+        "Dispatch handoff"
+      ],
+      "userJourney": [
+        "Connect call",
+        "Detect turn",
+        "Reason with context",
+        "Execute bounded tool",
+        "Resolve or hand off"
+      ],
+      "frameworks": [
+        "Pipecat",
+        "LiveKit Agents",
+        "whisper.cpp",
+        "Piper",
+        "FastAPI"
+      ],
+      "architecture": "WebRTC/telephony → realtime pipeline → model/tools → handoff → traces",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Realtime systems",
+        "Voice UX",
+        "Latency testing",
+        "Tool execution"
+      ],
+      "evaluation": [
+        "Turn-taking",
+        "Interruption",
+        "Latency budget",
+        "Tool correctness",
+        "Escalation quality"
+      ],
+      "complexity": 4,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 330,
+      "index": 16
+    },
+    {
+      "id": "offline-field-copilot",
+      "name": "Offline Field Operations Copilot",
+      "industry": "Utilities / logistics",
+      "targetUsers": "Field operations lead",
+      "businessProblem": "Provide procedures and capture notes without connectivity",
+      "buyerPersona": "Field operations lead",
+      "category": "Local & Edge AI",
+      "modality": "Local inference",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "netlify-free"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Local RAG",
+        "Sync queue",
+        "Device telemetry"
+      ],
+      "userJourney": [
+        "Load local model",
+        "Provide private input",
+        "Infer on device",
+        "Inspect resource use",
+        "Save local result"
+      ],
+      "frameworks": [
+        "Ollama",
+        "llama.cpp",
+        "WebLLM",
+        "Transformers.js",
+        "ONNX Runtime"
+      ],
+      "architecture": "Browser/desktop runtime → local model → device compute → private local state",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Local inference",
+        "Quantization",
+        "WebGPU",
+        "Privacy engineering"
+      ],
+      "evaluation": [
+        "Offline behavior",
+        "Memory use",
+        "Latency by device",
+        "Model-quality boundary"
+      ],
+      "complexity": 5,
+      "cost": "1/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 330,
+      "index": 50
+    },
+    {
+      "id": "healthcare-intake-voice",
+      "name": "Healthcare Intake Voice Agent",
+      "industry": "Healthcare",
+      "targetUsers": "Practice operations lead",
+      "businessProblem": "Collect non-diagnostic intake and route urgent signals safely",
+      "buyerPersona": "Practice operations lead",
+      "category": "Voice & Realtime",
+      "modality": "Voice",
+      "evidenceIds": [
+        "livekit-pm",
+        "health-agent-pm"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Consent",
+        "Structured intake",
+        "Urgency handoff"
+      ],
+      "userJourney": [
+        "Connect call",
+        "Detect turn",
+        "Reason with context",
+        "Execute bounded tool",
+        "Resolve or hand off"
+      ],
+      "frameworks": [
+        "Pipecat",
+        "LiveKit Agents",
+        "whisper.cpp",
+        "Piper",
+        "FastAPI"
+      ],
+      "architecture": "WebRTC/telephony → realtime pipeline → model/tools → handoff → traces",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Realtime systems",
+        "Voice UX",
+        "Latency testing",
+        "Tool execution"
+      ],
+      "evaluation": [
+        "Turn-taking",
+        "Interruption",
+        "Latency budget",
+        "Tool correctness",
+        "Escalation quality"
+      ],
+      "complexity": 5,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 310,
+      "index": 14
+    },
+    {
+      "id": "graph-research-assistant",
+      "name": "GraphRAG Relationship Explorer",
+      "industry": "Research / intelligence",
+      "targetUsers": "Knowledge engineering lead",
+      "businessProblem": "Answer multi-hop questions across entities and claims",
+      "buyerPersona": "Knowledge engineering lead",
+      "category": "RAG & Search",
+      "modality": "Text + retrieval",
+      "evidenceIds": [
+        "upwork-agent-job",
+        "upwork-engineer-job"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "Entity graph",
+        "Community summaries",
+        "Path citations"
+      ],
+      "userJourney": [
+        "Choose corpus",
+        "Ask question",
+        "Retrieve and rerank",
+        "Answer with citations",
+        "Evaluate or abstain"
+      ],
+      "frameworks": [
+        "LlamaIndex",
+        "Haystack",
+        "Qdrant",
+        "pgvector",
+        "Ragas"
+      ],
+      "architecture": "Ingestion → chunks/metadata → vector/keyword retrieval → reranker → answer/evals",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Retrieval engineering",
+        "Citation UX",
+        "Data pipelines",
+        "RAG evaluation"
+      ],
+      "evaluation": [
+        "Retrieval recall",
+        "Citation support",
+        "Faithfulness",
+        "Unanswerable queries",
+        "Freshness"
+      ],
+      "complexity": 5,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 310,
+      "index": 23
+    },
+    {
+      "id": "pharma-literature-intake",
+      "name": "Pharma Literature Intake Pipeline",
+      "industry": "Life sciences",
+      "targetUsers": "Drug-safety operations lead",
+      "businessProblem": "Extract structured safety references for qualified review",
+      "buyerPersona": "Drug-safety operations lead",
+      "category": "Document AI",
+      "modality": "Documents + vision",
+      "evidenceIds": [
+        "upwork-2026",
+        "mckinsey-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "PDF parsing",
+        "Entity extraction",
+        "Reviewer trace"
+      ],
+      "userJourney": [
+        "Receive document",
+        "Classify and extract",
+        "Validate schema",
+        "Review exception",
+        "Export approved record"
+      ],
+      "frameworks": [
+        "Pydantic AI",
+        "PaddleOCR",
+        "Docling",
+        "ONNX Runtime",
+        "FastAPI"
+      ],
+      "architecture": "Secure intake → OCR/VLM → typed schema → validators → review queue",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "OCR pipelines",
+        "Structured outputs",
+        "Validation",
+        "Human review"
+      ],
+      "evaluation": [
+        "Field accuracy",
+        "Confidence calibration",
+        "Malformed input",
+        "Cross-field validation"
+      ],
+      "complexity": 5,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 310,
+      "index": 28
+    },
+    {
+      "id": "incident-diagnosis-agent",
+      "name": "Production Incident Diagnosis Agent",
+      "industry": "DevOps",
+      "targetUsers": "SRE lead",
+      "businessProblem": "Correlate logs, deploy changes, and runbooks without autonomous writes",
+      "buyerPersona": "SRE lead",
+      "category": "Developer Agents",
+      "modality": "Code + tools",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "openai-applied-role"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Timeline builder",
+        "Hypothesis ranking",
+        "Runbook retrieval"
+      ],
+      "userJourney": [
+        "Inspect repository",
+        "Form plan",
+        "Propose patch",
+        "Run controlled tests",
+        "Review evidence"
+      ],
+      "frameworks": [
+        "OpenAI Agents SDK",
+        "LangGraph",
+        "MCP",
+        "Playwright",
+        "GitHub Actions"
+      ],
+      "architecture": "Sandboxed agent → repository tools → diff policy → test runner → approval gate",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Code agents",
+        "Sandboxing",
+        "Test automation",
+        "Developer experience"
+      ],
+      "evaluation": [
+        "Patch correctness",
+        "Test quality",
+        "Unsafe command denial",
+        "Rollback and review"
+      ],
+      "complexity": 5,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 310,
+      "index": 39
+    },
+    {
+      "id": "edge-anomaly-monitor",
+      "name": "Edge Sensor Anomaly Explainer",
+      "industry": "Manufacturing",
+      "targetUsers": "Plant engineering lead",
+      "businessProblem": "Detect and explain equipment anomalies near the source",
+      "buyerPersona": "Plant engineering lead",
+      "category": "Local & Edge AI",
+      "modality": "Local inference",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "netlify-free"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Time-series model",
+        "Local alert",
+        "Operator feedback"
+      ],
+      "userJourney": [
+        "Load local model",
+        "Provide private input",
+        "Infer on device",
+        "Inspect resource use",
+        "Save local result"
+      ],
+      "frameworks": [
+        "Ollama",
+        "llama.cpp",
+        "WebLLM",
+        "Transformers.js",
+        "ONNX Runtime"
+      ],
+      "architecture": "Browser/desktop runtime → local model → device compute → private local state",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Local inference",
+        "Quantization",
+        "WebGPU",
+        "Privacy engineering"
+      ],
+      "evaluation": [
+        "Offline behavior",
+        "Memory use",
+        "Latency by device",
+        "Model-quality boundary"
+      ],
+      "complexity": 5,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 310,
+      "index": 53
+    },
+    {
+      "id": "game-master-agent",
+      "name": "Persistent AI Game Master",
+      "industry": "Gaming",
+      "targetUsers": "Game studio lead",
+      "businessProblem": "Manage story state and bounded NPC actions across sessions",
+      "buyerPersona": "Game studio lead",
+      "category": "Industry Applications",
+      "modality": "Mixed",
+      "evidenceIds": [
+        "mckinsey-2026",
+        "upwork-2026"
+      ],
+      "evidenceSignal": "Demonstrated demand",
+      "features": [
+        "World state",
+        "Tool rules",
+        "Player safety"
+      ],
+      "userJourney": [
+        "Frame domain task",
+        "Gather governed context",
+        "Run bounded assistance",
+        "Human decision",
+        "Measure outcome"
+      ],
+      "frameworks": [
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "OpenTelemetry"
+      ],
+      "architecture": "Domain UI → policy/orchestration → data/tools/models → human checkpoint → audit",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Domain discovery",
+        "Applied AI architecture",
+        "Product metrics",
+        "Risk controls"
+      ],
+      "evaluation": [
+        "Domain acceptance cases",
+        "Safety and policy checks",
+        "Human override",
+        "Outcome instrumentation"
+      ],
+      "complexity": 5,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 310,
+      "index": 60
+    },
+    {
+      "id": "voice-npc-director",
+      "name": "Realtime Voice NPC Director",
+      "industry": "Gaming",
+      "targetUsers": "Game studio product lead",
+      "businessProblem": "Create bounded, lore-grounded dialogue with low-latency speech",
+      "buyerPersona": "Game studio product lead",
+      "category": "Voice & Realtime",
+      "modality": "Voice",
+      "evidenceIds": [
+        "livekit-pm",
+        "health-agent-pm"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Lore retrieval",
+        "Emotion state",
+        "Safety boundary"
+      ],
+      "userJourney": [
+        "Connect call",
+        "Detect turn",
+        "Reason with context",
+        "Execute bounded tool",
+        "Resolve or hand off"
+      ],
+      "frameworks": [
+        "Pipecat",
+        "LiveKit Agents",
+        "whisper.cpp",
+        "Piper",
+        "FastAPI"
+      ],
+      "architecture": "WebRTC/telephony → realtime pipeline → model/tools → handoff → traces",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Realtime systems",
+        "Voice UX",
+        "Latency testing",
+        "Tool execution"
+      ],
+      "evaluation": [
+        "Turn-taking",
+        "Interruption",
+        "Latency budget",
+        "Tool correctness",
+        "Escalation quality"
+      ],
+      "complexity": 4,
+      "cost": "2/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 300,
+      "index": 17
+    },
+    {
+      "id": "travel-disruption-agent",
+      "name": "Travel Disruption Voice Assistant",
+      "industry": "Travel",
+      "targetUsers": "Airline / OTA service lead",
+      "businessProblem": "Explain disruption options and rebook with confirmation",
+      "buyerPersona": "Airline / OTA service lead",
+      "category": "Voice & Realtime",
+      "modality": "Voice",
+      "evidenceIds": [
+        "livekit-pm",
+        "health-agent-pm"
+      ],
+      "evidenceSignal": "2027 opportunity",
+      "features": [
+        "Trip lookup",
+        "Option compare",
+        "Protected booking"
+      ],
+      "userJourney": [
+        "Connect call",
+        "Detect turn",
+        "Reason with context",
+        "Execute bounded tool",
+        "Resolve or hand off"
+      ],
+      "frameworks": [
+        "Pipecat",
+        "LiveKit Agents",
+        "whisper.cpp",
+        "Piper",
+        "FastAPI"
+      ],
+      "architecture": "WebRTC/telephony → realtime pipeline → model/tools → handoff → traces",
+      "deployment": "Zero-card path: static/browser experience plus local Python or TypeScript service where required.",
+      "skills": [
+        "Realtime systems",
+        "Voice UX",
+        "Latency testing",
+        "Tool execution"
+      ],
+      "evaluation": [
+        "Turn-taking",
+        "Interruption",
+        "Latency budget",
+        "Tool correctness",
+        "Escalation quality"
+      ],
+      "complexity": 5,
+      "cost": "3/5 relative zero-cost build effort",
+      "status": "Research Roadmap",
+      "github": null,
+      "demo": null,
+      "improvements": [
+        "Replace fixtures with executable framework integration",
+        "Add reproducible test evidence",
+        "Publish only after live verification"
+      ],
+      "priority": 290,
+      "index": 15
+    }
+  ],
+  "opportunityMap": [
+    {
+      "name": "AI integration & workflow engineering",
+      "signal": "Demonstrated demand",
+      "score": 95,
+      "evidenceIds": [
+        "upwork-2026",
+        "upwork-july-2026",
+        "upwork-agent-job"
+      ],
+      "why": "Buyers increasingly specify integration, full-stack AI, automation, and production ownership rather than generic prompting."
+    },
+    {
+      "name": "Agent evaluation, reliability & observability",
+      "signal": "Demonstrated demand",
+      "score": 93,
+      "evidenceIds": [
+        "langchain-2026",
+        "upwork-engineer-job",
+        "openai-applied-role"
+      ],
+      "why": "Quality, failure tracing, permissions, and regression evidence are recurring implementation and role requirements."
+    },
+    {
+      "name": "RAG, search & governed knowledge",
+      "signal": "Demonstrated demand",
+      "score": 90,
+      "evidenceIds": [
+        "upwork-agent-job",
+        "upwork-engineer-job",
+        "mckinsey-2026"
+      ],
+      "why": "Direct briefs request RAG and citations; enterprise knowledge work remains a leading agent use case."
+    },
+    {
+      "name": "Voice and realtime agents",
+      "signal": "Demonstrated demand",
+      "score": 88,
+      "evidenceIds": [
+        "livekit-pm",
+        "health-agent-pm",
+        "upwork-agent-job"
+      ],
+      "why": "Current roles and projects emphasize latency, reliability, tool execution, healthcare workflows, and operational launch."
+    },
+    {
+      "name": "MCP, permissions & agent enablement",
+      "signal": "Emerging demand with direct evidence",
+      "score": 86,
+      "evidenceIds": [
+        "openai-applied-role",
+        "upwork-engineer-job",
+        "upwork-agent-job"
+      ],
+      "why": "MCP appears in current freelance briefs and product-engineering roles alongside identity, permissioning, and safe tool access."
+    },
+    {
+      "name": "Developer agents & controlled software delivery",
+      "signal": "Demonstrated enterprise adoption",
+      "score": 85,
+      "evidenceIds": [
+        "mckinsey-2026",
+        "openai-applied-role"
+      ],
+      "why": "Coding agents are scaling, but durable value depends on architecture, testing, review, and repository safety."
+    },
+    {
+      "name": "Browser/local AI & privacy-preserving inference",
+      "signal": "Strategic 2027 opportunity",
+      "score": 74,
+      "evidenceIds": [
+        "mckinsey-2026",
+        "netlify-free"
+      ],
+      "why": "Local inference reduces data transmission and recurring API cost, but buyer demand is less directly visible than integration demand."
+    },
+    {
+      "name": "Multimodal media & computer vision",
+      "signal": "Demonstrated and growing demand",
+      "score": 82,
+      "evidenceIds": [
+        "upwork-2026",
+        "upwork-july-2026"
+      ],
+      "why": "Marketplace data shows strong AI video/image and computer-vision demand; credible products must add workflow and evaluation depth."
+    },
+    {
+      "name": "Human-gated industry agents",
+      "signal": "Validated need, uneven scaling",
+      "score": 84,
+      "evidenceIds": [
+        "mckinsey-2026",
+        "health-agent-pm"
+      ],
+      "why": "Adoption is expanding, but governance and ROI remain uneven; bounded workflows with accountable humans are more credible than autonomy claims."
+    }
+  ],
+  "buildSequence": [
+    [
+      "01",
+      "AI Evaluation Workbench",
+      "Locally Runnable Real System",
+      "Executable Python pipeline, 7 passing tests, JSON/CSV/JUnit evidence + browser review workspace"
+    ],
+    [
+      "02",
+      "MCP Agent Tool Hub",
+      "In Build Queue",
+      "Real MCP server/client, scoped permissions, tool-call evidence"
+    ],
+    [
+      "03",
+      "Browser-Native AI Vision Lab",
+      "In Build Queue",
+      "Real ONNX/Transformers.js inference without image upload"
+    ],
+    [
+      "04",
+      "RAG Research Assistant",
+      "In Build Queue",
+      "Retrieval, citations, abstention, and evaluation"
+    ],
+    [
+      "05",
+      "Pipecat Voice Agent",
+      "In Build Queue",
+      "Tested realtime conversation and bounded tool workflow"
+    ],
+    [
+      "06",
+      "Controlled AI Developer Agent",
+      "In Build Queue",
+      "Repository inspection, proposed patch, controlled tests and review"
+    ]
+  ],
+  "categoryBlueprints": {
+    "Evaluation & Safety": {
+      "modality": "Text + traces",
+      "journey": [
+        "Load test fixture",
+        "Execute evaluator",
+        "Inspect evidence",
+        "Prioritize failure",
+        "Export report"
+      ],
+      "architecture": "Dataset → runner → deterministic/model evaluators → report store → review UI",
+      "frameworks": [
+        "Python",
+        "Promptfoo",
+        "Ragas",
+        "Arize Phoenix",
+        "OpenTelemetry"
+      ],
+      "skills": [
+        "Evaluation design",
+        "Python testing",
+        "Observability",
+        "Safety analysis"
+      ],
+      "evaluation": [
+        "Positive, negative, and edge fixtures",
+        "Deterministic assertions",
+        "Failure taxonomy",
+        "Regression gate"
+      ]
+    },
+    "Agent Protocols": {
+      "modality": "Agents + tools",
+      "journey": [
+        "Discover capability",
+        "Request scoped permission",
+        "Call tool",
+        "Validate result",
+        "Audit or revoke"
+      ],
+      "architecture": "Agent/client → protocol SDK → permission gateway → tools/resources → audit log",
+      "frameworks": [
+        "MCP",
+        "A2A",
+        "AG-UI",
+        "FastAPI",
+        "TypeScript"
+      ],
+      "skills": [
+        "Protocol integration",
+        "Tool schemas",
+        "Authorization",
+        "Agent UX"
+      ],
+      "evaluation": [
+        "Schema conformance",
+        "Permission denial",
+        "Tool failure recovery",
+        "Audit completeness"
+      ]
+    },
+    "Voice & Realtime": {
+      "modality": "Voice",
+      "journey": [
+        "Connect call",
+        "Detect turn",
+        "Reason with context",
+        "Execute bounded tool",
+        "Resolve or hand off"
+      ],
+      "architecture": "WebRTC/telephony → realtime pipeline → model/tools → handoff → traces",
+      "frameworks": [
+        "Pipecat",
+        "LiveKit Agents",
+        "whisper.cpp",
+        "Piper",
+        "FastAPI"
+      ],
+      "skills": [
+        "Realtime systems",
+        "Voice UX",
+        "Latency testing",
+        "Tool execution"
+      ],
+      "evaluation": [
+        "Turn-taking",
+        "Interruption",
+        "Latency budget",
+        "Tool correctness",
+        "Escalation quality"
+      ]
+    },
+    "RAG & Search": {
+      "modality": "Text + retrieval",
+      "journey": [
+        "Choose corpus",
+        "Ask question",
+        "Retrieve and rerank",
+        "Answer with citations",
+        "Evaluate or abstain"
+      ],
+      "architecture": "Ingestion → chunks/metadata → vector/keyword retrieval → reranker → answer/evals",
+      "frameworks": [
+        "LlamaIndex",
+        "Haystack",
+        "Qdrant",
+        "pgvector",
+        "Ragas"
+      ],
+      "skills": [
+        "Retrieval engineering",
+        "Citation UX",
+        "Data pipelines",
+        "RAG evaluation"
+      ],
+      "evaluation": [
+        "Retrieval recall",
+        "Citation support",
+        "Faithfulness",
+        "Unanswerable queries",
+        "Freshness"
+      ]
+    },
+    "Document AI": {
+      "modality": "Documents + vision",
+      "journey": [
+        "Receive document",
+        "Classify and extract",
+        "Validate schema",
+        "Review exception",
+        "Export approved record"
+      ],
+      "architecture": "Secure intake → OCR/VLM → typed schema → validators → review queue",
+      "frameworks": [
+        "Pydantic AI",
+        "PaddleOCR",
+        "Docling",
+        "ONNX Runtime",
+        "FastAPI"
+      ],
+      "skills": [
+        "OCR pipelines",
+        "Structured outputs",
+        "Validation",
+        "Human review"
+      ],
+      "evaluation": [
+        "Field accuracy",
+        "Confidence calibration",
+        "Malformed input",
+        "Cross-field validation"
+      ]
+    },
+    "Vision & Multimodal": {
+      "modality": "Vision / media",
+      "journey": [
+        "Load local media",
+        "Run inference",
+        "Inspect detections",
+        "Correct result",
+        "Export evidence"
+      ],
+      "architecture": "Browser/local media → preprocessing → ONNX/WebGPU model → postprocessing → UI",
+      "frameworks": [
+        "Transformers.js",
+        "ONNX Runtime Web",
+        "OpenCV",
+        "SAM 2",
+        "FFmpeg"
+      ],
+      "skills": [
+        "Computer vision",
+        "Browser inference",
+        "Model packaging",
+        "Performance"
+      ],
+      "evaluation": [
+        "Labeled fixture set",
+        "False positive/negative review",
+        "Device performance",
+        "Privacy boundary"
+      ]
+    },
+    "Developer Agents": {
+      "modality": "Code + tools",
+      "journey": [
+        "Inspect repository",
+        "Form plan",
+        "Propose patch",
+        "Run controlled tests",
+        "Review evidence"
+      ],
+      "architecture": "Sandboxed agent → repository tools → diff policy → test runner → approval gate",
+      "frameworks": [
+        "OpenAI Agents SDK",
+        "LangGraph",
+        "MCP",
+        "Playwright",
+        "GitHub Actions"
+      ],
+      "skills": [
+        "Code agents",
+        "Sandboxing",
+        "Test automation",
+        "Developer experience"
+      ],
+      "evaluation": [
+        "Patch correctness",
+        "Test quality",
+        "Unsafe command denial",
+        "Rollback and review"
+      ]
+    },
+    "Workflow Automation": {
+      "modality": "Events + tools",
+      "journey": [
+        "Receive event",
+        "Normalize state",
+        "Route tasks",
+        "Pause for approval",
+        "Write and audit"
+      ],
+      "architecture": "Trigger → workflow engine → bounded agents/tools → approval → system adapter",
+      "frameworks": [
+        "n8n",
+        "Activepieces",
+        "Trigger.dev",
+        "Dify",
+        "FastAPI"
+      ],
+      "skills": [
+        "Workflow design",
+        "API integration",
+        "Idempotency",
+        "Operations UX"
+      ],
+      "evaluation": [
+        "Happy path",
+        "Retries",
+        "Duplicate event",
+        "Approval enforcement",
+        "Recovery"
+      ]
+    },
+    "Local & Edge AI": {
+      "modality": "Local inference",
+      "journey": [
+        "Load local model",
+        "Provide private input",
+        "Infer on device",
+        "Inspect resource use",
+        "Save local result"
+      ],
+      "architecture": "Browser/desktop runtime → local model → device compute → private local state",
+      "frameworks": [
+        "Ollama",
+        "llama.cpp",
+        "WebLLM",
+        "Transformers.js",
+        "ONNX Runtime"
+      ],
+      "skills": [
+        "Local inference",
+        "Quantization",
+        "WebGPU",
+        "Privacy engineering"
+      ],
+      "evaluation": [
+        "Offline behavior",
+        "Memory use",
+        "Latency by device",
+        "Model-quality boundary"
+      ]
+    },
+    "Industry Applications": {
+      "modality": "Mixed",
+      "journey": [
+        "Frame domain task",
+        "Gather governed context",
+        "Run bounded assistance",
+        "Human decision",
+        "Measure outcome"
+      ],
+      "architecture": "Domain UI → policy/orchestration → data/tools/models → human checkpoint → audit",
+      "frameworks": [
+        "LangGraph",
+        "FastAPI",
+        "React",
+        "OpenTelemetry"
+      ],
+      "skills": [
+        "Domain discovery",
+        "Applied AI architecture",
+        "Product metrics",
+        "Risk controls"
+      ],
+      "evaluation": [
+        "Domain acceptance cases",
+        "Safety and policy checks",
+        "Human override",
+        "Outcome instrumentation"
+      ]
+    }
+  }
+}

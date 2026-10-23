@@ -1,0 +1,53 @@
+AI Product Engineering Lab validation
+Generated: 2026-10-22T18:09:52.3241031+05:30
+
+PASS JavaScript syntax: app.js
+PASS JavaScript syntax: registry.js
+PASS JavaScript syntax: atlas.js
+PASS JavaScript syntax: framework-metadata.js
+PASS JavaScript syntax: framework-metadata-connector.js
+PASS JavaScript syntax: framework-release-metadata.js
+PASS JavaScript syntax: experiences.js
+PASS JavaScript syntax: labs.js
+
+PASS Python unittest suite (7 tests)
+test_duplicate_case_ids_are_rejected (test_pipeline.EvaluationPipelineTests.test_duplicate_case_ids_are_rejected) ... ok
+test_empty_dataset_is_rejected (test_pipeline.EvaluationPipelineTests.test_empty_dataset_is_rejected) ... ok
+test_missing_required_fields_are_rejected (test_pipeline.EvaluationPipelineTests.test_missing_required_fields_are_rejected) ... ok
+test_negative_policy_and_tool_case_fails_with_evidence (test_pipeline.EvaluationPipelineTests.test_negative_policy_and_tool_case_fails_with_evidence) ... ok
+test_positive_case_passes (test_pipeline.EvaluationPipelineTests.test_positive_case_passes) ... ok
+test_quality_gate_can_fail_the_process (test_pipeline.EvaluationPipelineTests.test_quality_gate_can_fail_the_process) ... ok
+test_runner_writes_machine_readable_report (test_pipeline.EvaluationPipelineTests.test_runner_writes_machine_readable_report) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.028s
+
+{
+  "total": 8,
+  "passed": 5,
+  "failed": 3,
+  "pass_rate": 0.625,
+  "average_score": 0.75
+}
+{
+  "total": 8,
+  "passed": 5,
+  "failed": 3,
+  "pass_rate": 0.625,
+  "average_score": 0.75
+}
+OK
+
+PASS evaluation execution
+{
+  "total": 8,
+  "passed": 5,
+  "failed": 3,
+  "pass_rate": 0.625,
+  "average_score": 0.75
+}
+
+PASS registry integrity: {"catalog":64,"evidence":10,"opportunities":9,"frameworks":63,"verifiedFrameworkRepos":63,"releaseMetadata":63}
+PASS manual browser routes: home, catalog, opportunities, roadmap, QA workbench, framework atlas
+PASS responsive browser check: 390x844 single-column catalog and mobile navigation
+PASS browser console: no warnings or errors observed

@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import registry from '../../data/registry.json';
+
+export function getStaticPaths() {
+  return registry.catalog.map((product) => ({ params: { slug: product.id }, props: { product } }));
+}
+
+const { product } = Astro.props;
+const statusTone = product.status.includes('Real') ? 'working' : product.status.includes('Simulation') ? 'simulation' : 'roadmap';
+---
+<BaseLayout title={product.name} description={product.businessProblem}>
+  <header class="page-hero shell"><p class="eyebrow">Case file {String(product.index).padStart(2,'0')} / 64</p><span class={`tag ${statusTone}`}>{product.status}</span><h1 class="display">{product.name}</h1><p class="lead">{product.businessProblem}</p><div class="button-row"><a class="button primary" href={product.github}>View relevant source ↗</a>{product.id === 'eval-workbench' && <a class="button" href="/workbench/">Open interactive workbench</a>}</div></header>
+  <section class="section-tight shell"><div class="status-banner"><span class={`tag ${statusTone}`}>{product.status}</span><p>{product.status === 'Interactive Simulation' ? 'This case includes a deterministic browser simulation. It does not call a live model, use customer data, or prove a production integration.' : product.status.includes('Real') ? 'This implementation has runnable source, tests, and generated evidence in the repository.' : 'This is a researched product candidate or queued build. The architecture and evaluation plan are design artifacts, not completed software.'}</p></div></section>
+  <section class="section-tight shell detail-grid">
+    <section><h2>User and buyer</h2><p>{product.targetUsers}</p><p>{product.industry}</p></section>
+    <section><h2>Evidence signal</h2><p>{product.evidenceSignal}</p><p>Priority score: {product.priority}</p></section>
+    <section><h2>Proposed features</h2><ul>{product.features.map((item) => <li>{item}</li>)}</ul></section>
+    <section><h2>User journey</h2><ol>{product.userJourney.map((item) => <li>{item}</li>)}</ol></section>
+    <section><h2>System architecture</h2><p>{product.architecture}</p><p>{product.deployment}</p></section>
+    <section><h2>Evaluation plan</h2><ul>{product.evaluation.map((item) => <li>{item}</li>)}</ul></section>
+    <section><h2>Framework candidates</h2><ul>{product.frameworks.map((item) => <li>{item}</li>)}</ul></section>
+    <section><h2>Next evidence needed</h2><ul>{product.improvements.map((item) => <li>{item}</li>)}</ul></section>
+  </section>
+</BaseLayout>

@@ -48,8 +48,8 @@ window.STUDIO_DATA = (() => {
       risks: ['Rubric drift', 'Reviewer inconsistency', 'Unrepresentative test sets', 'Averages hiding critical failures'],
       security: ['Synthetic data in this demo', 'No external transmission', 'Planned redaction before ingestion', 'Role-aware access in production'],
       cost: 'Reviewer time, observability volume, model-judge calls if used, storage, and integration with release workflows.',
-      mvp: 'The current working demo includes eight synthetic cases, six rubric dimensions, severity scoring, filters, a prioritized backlog, and JSON/CSV reports.',
-      today: 'This working demo proves my evaluation method and product thinking. It does not claim a paid deployment or real customer result.', demo: '#/qa-console'
+      mvp: 'The current vertical slice includes eight synthetic cases, a browser review interface, a typed dependency-free Python pipeline, four deterministic evaluators, seven automated tests, a quality gate, and JSON/CSV/JUnit evidence.',
+      today: 'This locally runnable real system proves the evaluation pipeline executes and the browser decision loop works. It uses synthetic data and does not claim a paid deployment, model-judge integration, or real customer result.', demo: '#/qa-console'
     },
     {
       slug: 'enterprise-rag-copilot', number: '04', icon: 'RAG', title: 'Enterprise RAG Knowledge Copilot', short: 'Grounded answers with citations, access-aware retrieval, and explicit failure handling.',

@@ -1,0 +1,162 @@
+window.STUDIO_EXPERIENCES = (() => {
+  const caseStudies = {
+    'voice-support-agent': {
+      labType: 'voice', status: 'Interactive Simulation', accent: 'cyan',
+      industryPersona: 'Travel, retail, SaaS, and service support leaders managing repetitive inbound calls while protecting access to human help.',
+      jobs: ['Resolve a routine request without navigating an IVR tree', 'Recover gracefully from interruption, noise, or tool failure', 'Transfer the full context when confidence or policy requires a person'],
+      opportunity: 'Voice automation is valuable where call volume is high and the task is bounded. The commercial wedge is not “replace the contact center”; it is reducing repetitive handling time while measuring containment quality and safe escalation.',
+      vision: 'A realtime support layer that sounds natural, acts only through approved tools, and treats escalation as a successful outcome when automation is uncertain.',
+      hypotheses: ['Interruptible dialogue will reduce caller frustration versus turn-locked IVR flows', 'Two high-volume intents can create measurable value before broad intent coverage', 'Handoff quality matters more than maximum containment'],
+      features: ['Realtime turn detection and interruption recovery', 'Policy-aware intent and risk state', 'Read-only account and appointment tools', 'Reasoned handoff with transcript and completed steps'],
+      modelStrategy: 'Use streaming speech recognition, a low-latency conversational model, and server-side tool policies. The model proposes actions; a deterministic gateway validates identity, arguments, permissions, and confirmation requirements.',
+      nonFunctional: ['Target sub-second first audio where the stack permits', 'Graceful degradation on packet loss and silence', 'Consent, recording, and retention controls by market', 'Trace every tool request and handoff reason'],
+      buildBuy: 'Buy telephony/media transport and commodity speech primitives; build the business policy, tool contracts, escalation logic, evaluation set, and operational analytics that differentiate the product.',
+      commercial: 'Start with a paid discovery and call-flow audit, then a bounded pilot for one queue. Price implementation around integrations, coverage hours, evaluation depth, and support—not a guaranteed cost-saving percentage.',
+      roadmap: ['Browser-call simulation and latency instrumentation', 'One read-only account tool plus appointment booking', 'Agent desktop handoff and supervisor QA', 'Telephony pilot with controlled traffic'],
+      evidence: 'The lab below is deterministic and browser-only. It demonstrates the intended state machine; it does not place a call or invoke a speech model.'
+    },
+    'support-chatbot': {
+      labType: 'chat', status: 'Interactive Simulation', accent: 'violet',
+      industryPersona: 'SaaS support and CX product teams whose assistants answer policy questions, inspect accounts, and hand work to agents.',
+      jobs: ['Get a grounded answer without repeating context', 'Complete a safe account lookup or recover when it fails', 'Reach a human with a concise, accurate case summary'],
+      opportunity: 'Support teams need more than FAQ deflection. A credible product combines grounded answers, stateful workflows, tool validation, and escalation analytics.',
+      vision: 'A stateful assistant that earns trust by showing its limits, validating every external action, and preserving the customer journey across automation and people.',
+      hypotheses: ['A graph-based workflow reduces failure ambiguity compared with one large prompt', 'Explicit attempt counters improve recovery from repeated tool failures', 'Evidence-linked responses improve both agent acceptance and QA speed'],
+      features: ['Intent and risk router', 'Knowledge retrieval with answer citations', 'Bounded account tools and result validation', 'Attempt-aware fallback and contextual human handoff'],
+      modelStrategy: 'LangGraph owns state and transitions. The LLM classifies language and drafts grounded responses; deterministic nodes enforce policy, validate tools, count failures, and decide when escalation is mandatory.',
+      nonFunctional: ['Stream useful feedback while tools run', 'Do not expose retrieved instructions as system authority', 'Preserve state across retries and handoff', 'Measure answer, tool, fallback, and escalation separately'],
+      buildBuy: 'Use existing chat transport, model, and observability services; build the domain graph, policy layer, tool adapters, evaluation data, and agent handoff contract.',
+      commercial: 'Offer an audit first, followed by a narrow remediation or prototype sprint. Scope is driven by supported intents, knowledge quality, integrations, and compliance requirements.',
+      roadmap: ['Five-intent simulation and golden test set', 'Grounded knowledge prototype', 'One read-only account integration', 'Agent queue integration and regression monitoring'],
+      evidence: 'The lab uses predefined support scenarios and local state. It makes no external account lookup and clearly exposes the simulated tool path.'
+    },
+    'conversation-qa-console': {
+      labType: 'qa', status: 'Locally Runnable Real System', accent: 'lime',
+      industryPersona: 'Conversational AI product managers, QA leads, support operations, and engineering teams preparing releases.',
+      jobs: ['Turn transcript evidence into repeatable quality scores', 'Find safety and tool failures hidden by averages', 'Convert findings into an owned, prioritized remediation backlog'],
+      opportunity: 'AI quality work is often trapped in spreadsheets and anecdotal reviews. A lightweight evaluation workspace can connect release evidence to product decisions before teams need a large observability platform.',
+      vision: 'A practical quality operating system where scenarios, rubrics, failures, ownership, and release gates stay connected.',
+      hypotheses: ['Evidence-linked issue records improve prioritization', 'Severity plus rubric deficit is more useful than a single average', 'Teams adopt evaluation faster when the workflow starts with human review'],
+      features: ['Eight synthetic review cases', 'Six-dimension editable rubric', 'Severity and ownership model', 'Impact-ranked backlog with CSV and JSON export'],
+      modelStrategy: 'The current prototype is deterministic and model-free. Production extensions may add trace ingestion and model judges, but human calibration and explicit release rules remain the source of accountability.',
+      nonFunctional: ['No external transmission in this browser demo', 'Keyboard-accessible scoring and filters', 'Exportable evidence for review', 'Critical failures cannot be averaged away'],
+      buildBuy: 'Build the team-specific rubric, taxonomy, workflow, and release logic. Integrate a mature trace/evaluation platform such as Phoenix when observability volume or experiment management justifies it.',
+      commercial: 'Use the console as the deliverable shell for chatbot audits and evaluation-design engagements; expand into integrations only after the client agrees on quality definitions.',
+      roadmap: ['Current browser prototype', 'Persistent projects and reviewer calibration', 'Trace ingestion and experiment comparison', 'Release gates and CI regression runs'],
+      evidence: 'The browser review layer performs real scoring, filtering, prioritization, reset, and export. A separate dependency-free Python package now executes deterministic correctness, policy, tool-use, and recovery checks with seven passing tests and JSON/CSV/JUnit evidence.'
+    },
+    'enterprise-rag-copilot': {
+      labType: 'rag', status: 'Interactive Simulation', accent: 'blue',
+      industryPersona: 'Internal support, enablement, operations, and regulated knowledge teams working across approved documents.',
+      jobs: ['Find a supported answer quickly', 'Inspect the exact passages behind a claim', 'Get an honest abstention when the corpus cannot answer'],
+      opportunity: 'The durable value is governed access and measurable retrieval quality—not a generic chat box. Buyers pay for trusted sources, permissions, freshness, and workflow fit.',
+      vision: 'A knowledge copilot that makes retrieval visible, cites every material claim, and treats “not enough evidence” as a product feature.',
+      hypotheses: ['Showing retrieved passages increases appropriate trust', 'Hybrid retrieval improves policy lookup across names and concepts', 'An explicit abstention threshold reduces unsupported synthesis'],
+      features: ['Corpus and source explorer', 'Hybrid retrieval and reranking', 'Citation-level answer support', 'Abstention, feedback, and retrieval diagnostics'],
+      modelStrategy: 'LlamaIndex coordinates ingestion and retrieval; Qdrant or pgvector stores embeddings and metadata. A model synthesizes only from authorized chunks after reranking and threshold checks.',
+      nonFunctional: ['Propagate document ACLs into every retrieval filter', 'Measure freshness and index lag', 'Defend against instructions embedded in documents', 'Log source versions with answers'],
+      buildBuy: 'Buy embeddings and model inference; choose managed or self-hosted vector storage by scale and governance. Build corpus policy, evaluation, permissions, citation UX, and source operations.',
+      commercial: 'Sell a corpus-readiness and retrieval evaluation sprint before a pilot. Implementation scope depends on source systems, permissions, freshness expectations, and answer risk.',
+      roadmap: ['Public mini-corpus simulation', 'Executable small-corpus prototype', 'Permission-aware enterprise connector', 'Production freshness, analytics, and evaluation loop'],
+      evidence: 'Questions, retrieved passages, scores, citations, and abstention are predefined demonstrations. No model or vector database runs in this browser experience.'
+    },
+    'customer-360-copilot': {
+      labType: 'customer360', status: 'Interactive Simulation', accent: 'amber',
+      industryPersona: 'Customer-success, service, and account teams that need governed context across tickets, usage, transactions, and notes.',
+      jobs: ['Understand account health without visiting five systems', 'See why a risk signal was produced', 'Choose the next best investigation or action with evidence'],
+      opportunity: 'Customer 360 programs fail when they become dashboards without decisions. The product opportunity is an explanation layer that reconciles deterministic signals with narrative context.',
+      vision: 'A governed account workspace where every recommendation is traceable to data, freshness, permissions, and a business rule.',
+      hypotheses: ['Evidence-linked next-best actions are more trusted than opaque scores', 'Five actionable signals outperform a wide but noisy “single customer view”', 'Deterministic metrics should remain separate from generated summaries'],
+      features: ['Identity-resolved account timeline', 'Auditable health and risk signals', 'Evidence-linked summary and next-best action', 'Feedback and investigation workflow'],
+      modelStrategy: 'SQL computes canonical metrics; retrieval supplies approved qualitative context. The model summarizes and explains but cannot rewrite source metrics or initiate customer actions.',
+      nonFunctional: ['Field-level and purpose-based access', 'Visible freshness for every source', 'Entity-match confidence and collision handling', 'Audit all viewed evidence and accepted actions'],
+      buildBuy: 'Reuse the warehouse, CRM, and identity infrastructure; build the decision model, source contracts, explanation UX, evaluation, and operating workflow.',
+      commercial: 'Begin with a use-case and data-readiness assessment, then implement one decision workflow rather than promising an enterprise-wide customer graph.',
+      roadmap: ['Three-account interactive simulation', 'Two-source analytical prototype', 'Governed CRM and support integration', 'Experimentation on signal precision and action adoption'],
+      evidence: 'All customers and signals below are synthetic. Selecting a record performs real local UI state changes but no data source is connected.'
+    },
+    'document-processing-agent': {
+      labType: 'document', status: 'Interactive Simulation', accent: 'pink',
+      industryPersona: 'Finance, onboarding, insurance, and compliance operations that process variable documents under audit requirements.',
+      jobs: ['Extract required fields consistently', 'Understand why a document needs review', 'Prevent uncertain or invalid data from contaminating downstream systems'],
+      opportunity: 'Straight-through processing creates value only when field accuracy, exception handling, and reviewer effort are measured together.',
+      vision: 'A schema-first intake line where AI proposes structured data and deterministic validation decides whether a person must approve it.',
+      hypotheses: ['Typed schemas catch high-cost extraction errors before export', 'Field-level confidence is more actionable than document confidence', 'Focused document classes outperform a universal extractor in the first release'],
+      features: ['Document classification', 'Schema-constrained extraction', 'Cross-field and policy validation', 'Confidence routing and reviewer correction'],
+      modelStrategy: 'A multimodal model extracts into a Pydantic schema. Deterministic validators check required fields, formats, arithmetic, and policy; low-confidence or inconsistent records enter review.',
+      nonFunctional: ['Short, explicit retention', 'Malware and file-type checks before processing', 'Immutable reviewer corrections', 'Version schemas and extraction prompts together'],
+      buildBuy: 'Buy commodity OCR/model inference and secure object storage; build the schemas, validation, review workflow, integration contract, and labeled evaluation set.',
+      commercial: 'Price a pilot by document type, field count, volume, exception rate, integration, and security needs—never by an unsupported accuracy promise.',
+      roadmap: ['Synthetic extraction review simulation', 'One document type and ten-field prototype', 'Reviewer queue with correction capture', 'Controlled downstream export and drift monitoring'],
+      evidence: 'The sample documents are synthetic fixtures. “Extract” reveals predefined fields and runs local validation; it does not read an uploaded file or call a model.'
+    },
+    'sales-research-agent': {
+      labType: 'sales', status: 'Interactive Simulation', accent: 'orange',
+      industryPersona: 'B2B sales, partnerships, and account-planning teams preparing evidence-based discovery.',
+      jobs: ['Create a consistent account brief quickly', 'Separate source facts from hypotheses', 'Export useful discovery questions without automated outreach'],
+      opportunity: 'Research automation is useful when it improves preparation and consistency without producing unverifiable personalization or spam.',
+      vision: 'An evidence-first research assistant that turns approved public sources into reviewable account hypotheses and better discovery questions.',
+      hypotheses: ['Claim-to-source mapping reduces fact errors during review', 'A fixed research plan improves consistency across representatives', 'Human-approved CRM export is sufficient for an initial product'],
+      features: ['Research-plan template', 'Allowlisted source collection', 'Claim, citation, and freshness ledger', 'Human-reviewed brief and CRM export'],
+      modelStrategy: 'A graph separates planning, evidence extraction, conflict checks, and synthesis. Tools can read approved sources; no outbound message or CRM write occurs without explicit human approval.',
+      nonFunctional: ['Respect source terms and rate limits', 'Record retrieval time and canonical URL', 'Flag conflicting and stale facts', 'Block autonomous outreach'],
+      buildBuy: 'Buy compliant search/data access where needed; build the research policy, evidence model, synthesis template, approval step, and CRM mapping.',
+      commercial: 'Offer a research workflow design or internal prototype. External data subscriptions, enrichment rights, and CRM write access are separate client decisions.',
+      roadmap: ['Two-account evidence simulation', 'Approved-source research prototype', 'Reviewer feedback and CRM-ready export', 'Freshness monitoring and team templates'],
+      evidence: 'Accounts, evidence, and hypotheses are fictional. The simulation demonstrates provenance and conflict handling, not live web research.'
+    },
+    'operations-coordinator': {
+      labType: 'operations', status: 'Interactive Simulation', accent: 'green',
+      industryPersona: 'Operations teams coordinating repetitive requests across systems, specialist roles, and approval boundaries.',
+      jobs: ['See who owns every step', 'Recover when a tool or agent fails', 'Keep a human decision at the point of material impact'],
+      opportunity: 'Multi-agent value comes from bounded coordination, not agent count. The commercial opportunity is shortening cycle time while making responsibility and exceptions more visible.',
+      vision: 'A deterministic controller that delegates narrow reasoning tasks, validates outputs, and pauses for human authority at consequential boundaries.',
+      hypotheses: ['One controller with explicit state reduces loops and ownership ambiguity', 'Role-bounded prompts improve evaluation and permissions', 'Human gates should be designed as first-class workflow states'],
+      features: ['Request classification and plan proposal', 'Role-bounded specialist tasks', 'Tool gateway with budgets and idempotency', 'Exception queue, approval gate, and audit trail'],
+      modelStrategy: 'LangGraph or an equivalent controller owns state. Crew-style roles can shape specialist context, but tools, budgets, completion rules, and approvals remain deterministic.',
+      nonFunctional: ['Hard limits on steps, time, and spend', 'Idempotent external actions', 'Deadlock and duplicate-work detection', 'Event-level ownership and auditability'],
+      buildBuy: 'Use an orchestration framework for primitives; build the business state machine, tool contracts, permission model, exception UX, evaluation, and operational controls.',
+      commercial: 'Start with one high-friction workflow and read-only tools. Expand only after exception rate, handoff quality, and operator trust meet agreed gates.',
+      roadmap: ['Interactive responsibility and approval simulation', 'One read-only three-role prototype', 'Exception handling and tool retry policy', 'Controlled write tools with production monitoring'],
+      evidence: 'The workflow steps and agent outputs are scripted fixtures. The human approval control changes local state but triggers no external action.'
+    },
+    'marketing-creative-copilot': {
+      labType: 'marketing', status: 'Interactive Simulation', accent: 'purple',
+      industryPersona: 'Brand, growth, and creative-operations teams translating campaign briefs into governed variants.',
+      jobs: ['Turn a brief into channel-ready concepts', 'Keep claims and brand rules visible during generation', 'Compare creative options with cost and approval context'],
+      opportunity: 'Generation is abundant; controlled briefing, rights review, brand consistency, and efficient approval are the defensible workflow.',
+      vision: 'A brief-to-approval workspace where every variant carries its source brief, checks, cost estimate, provenance, and publishing owner.',
+      hypotheses: ['Structured briefs reduce revision cycles more than bigger models', 'Policy checks before reviewer handoff save creative-ops time', 'Cost visibility changes how teams choose channels and model tiers'],
+      features: ['Structured campaign brief', 'Channel and audience variant plan', 'Brand, policy, rights, and claim checks', 'Human comparison, approval, and provenance record'],
+      modelStrategy: 'Dify can orchestrate brief normalization, knowledge retrieval, text/image generation, and checks. The model proposes assets; people retain approval and publishing authority.',
+      nonFunctional: ['Record model and source-asset provenance', 'Moderate claims, likeness, and sensitive content', 'Separate draft storage from approved assets', 'Budget at campaign and variant level'],
+      buildBuy: 'Buy generation models and media storage; build the brand knowledge, workflow, evaluation, approval, cost ledger, and publishing integration.',
+      commercial: 'Offer a workflow design or bounded prototype around one channel. Generation fees, asset rights, moderation, and downstream publishing remain explicit scope items.',
+      roadmap: ['Interactive brief and review simulation', 'Single-channel text prototype', 'Image variants with provenance and cost controls', 'Approval analytics and authorized publishing connectors'],
+      evidence: 'The concepts and checks below are predefined examples. No text or image model runs, and nothing is published from this lab.'
+    }
+  };
+
+  const frameworkDetails = {
+    'Pipecat': ['Frame-based realtime voice pipeline; composes transport, STT, LLM, TTS, and processors.', 'WebRTC/telephony transport → pipeline processors → tool service → observability.', 'Deploy the Python service close to media infrastructure; test provider latency and interruption behavior.', 'LiveKit Agents for a more integrated realtime runtime; bespoke WebRTC stacks for maximum control.'],
+    'LiveKit Agents': ['Realtime agent runtime over LiveKit rooms with voice/video, turn detection, and telephony integrations.', 'Client/telephony → LiveKit room → agent worker → models and tools.', 'Managed LiveKit Cloud or self-hosted LiveKit plus separately operated agent workers.', 'Pipecat for pipeline composition; vendor voice-agent platforms for faster managed delivery.'],
+    'LangGraph': ['Stateful orchestration for durable, controllable, long-running agent workflows.', 'Typed state → graph nodes → checkpoints → tools → human interrupts.', 'Run inside an API/worker process with durable checkpoint storage and tracing.', 'Direct application state machines for smaller flows; CrewAI for role-oriented orchestration.'],
+    'Dify': ['Visual platform for LLM workflows, knowledge retrieval, agents, and application operations.', 'App UI/API → Dify workflow → model, knowledge, and tool nodes.', 'Dify Cloud or self-hosted services; review the current custom license for commercial conditions.', 'LangGraph for code-first control; managed AI app builders for lower operational effort.'],
+    'LlamaIndex': ['Data and agent framework centered on ingestion, indexing, retrieval, and query workflows.', 'Source loaders → transformations → index/vector store → retriever/reranker → response synthesis.', 'Application service plus chosen vector/database and model providers.', 'Haystack for explicit pipelines; custom retrieval services for narrower requirements.'],
+    'Haystack': ['Component and pipeline framework for retrieval, generation, and agent systems.', 'Documents → converters/indexers → retrievers → prompt/generator → evaluators.', 'Python service or worker with the selected document and vector stores.', 'LlamaIndex for broad data abstractions; direct framework/provider SDKs for small systems.'],
+    'Pydantic AI': ['Typed Python agent framework using Pydantic validation and structured outputs.', 'Agent dependency context → model/tool calls → validated result schema.', 'Python API or worker; pin versions and test model-specific structured output behavior.', 'Direct provider SDK plus Pydantic; LangGraph when workflow state is the dominant need.'],
+    'CrewAI': ['Role-oriented multi-agent framework for crews, tasks, and flows.', 'Controller/flow → specialist roles → tools → shared outputs and review.', 'Python worker/API with strict budgets, logging, and a separate authorization layer.', 'LangGraph for explicit state; a single agent with tools when specialization adds little.'],
+    'Arize Phoenix': ['Open-source observability and evaluation for LLM traces, datasets, experiments, and evaluators.', 'OpenTelemetry traces/evals → Phoenix service → analysis and experiment UI.', 'Self-host or use a managed offering; verify Elastic License 2.0 obligations.', 'LangSmith and other managed observability suites; custom OpenTelemetry stack.'],
+    'Qdrant': ['Vector database for similarity search with payload filtering and hybrid retrieval support.', 'Embedding service → collections/points → filtered retrieval → application reranking.', 'Managed Qdrant Cloud or self-hosted cluster with backup and sizing discipline.', 'pgvector for consolidation in Postgres; other dedicated vector databases at scale.'],
+    'FastAPI': ['Typed ASGI framework for Python APIs, validation, dependency injection, and OpenAPI.', 'Client → API routes/dependencies → domain services/tools → data and model providers.', 'ASGI server/container or serverless adapter; standard web security still applies.', 'Flask for minimal services; Django for batteries-included applications; provider-native functions.'],
+    'pgvector': ['PostgreSQL extension that stores and searches vectors beside relational data.', 'Application/embedding → Postgres tables and vector indexes → filtered SQL retrieval.', 'Managed or self-hosted Postgres with extension support and index/query tuning.', 'Qdrant for dedicated vector operations; managed search platforms for combined lexical/vector needs.']
+  };
+
+  Object.entries(caseStudies).forEach(([slug, detail]) => Object.assign(window.STUDIO_DATA.products.find(p => p.slug === slug), detail));
+  window.STUDIO_DATA.frameworks.forEach(framework => {
+    const [capabilities, integration, deployment, alternatives] = frameworkDetails[framework.name] || [];
+    Object.assign(framework, { capabilities, integration, deployment, alternatives });
+  });
+
+  return { caseStudies, frameworkDetails };
+})();

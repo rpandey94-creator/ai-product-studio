@@ -1,0 +1,59 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+}
+
+const { title, description, path = Astro.url.pathname } = Astro.props;
+const nav = [
+  ['/', 'Home', 'Home'],
+  ['/projects/', 'Projects', 'Projects'],
+  ['/product-thinking/', 'Product Thinking', 'Thinking'],
+  ['/about/', 'About', 'About'],
+  ['/contact/', 'Contact', 'Contact'],
+];
+const isCurrent = (href: string) => href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#07100e" />
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+    <meta property="og:title" content={`${title} · Rishav Pandey`} />
+    <meta property="og:description" content={description} />
+    <title>{title} · Rishav Pandey</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="ambient-grid" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Rishav Pandey portfolio home">
+        <span class="brand-mark" aria-hidden="true">RP</span>
+        <span>Rishav Pandey</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        {nav.map(([href, label]) => <a href={href} aria-current={isCurrent(href) ? 'page' : undefined}>{label}</a>)}
+      </nav>
+      <a class="source-link" href="https://github.com/rpandey94-creator/ai-product-studio">GitHub ↗</a>
+    </header>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+      {nav.map(([href, , mobileLabel]) => <a href={href} aria-current={isCurrent(href) ? 'page' : undefined}>{mobileLabel}</a>)}
+    </nav>
+    <main id="main"><slot /></main>
+    <footer class="site-footer">
+      <div>
+        <p class="eyebrow">Independent portfolio</p>
+        <strong>Rishav Pandey · AI Product Manager & Hands-On AI Builder</strong>
+      </div>
+      <p>Designed case studies, clearly labeled prototypes, and verified implementation evidence. No employer or client work is represented here.</p>
+      <div class="footer-links"><a href="/contact/">Contact</a><a href="/research/">Research archive</a></div>
+    </footer>
+  </body>
+</html>

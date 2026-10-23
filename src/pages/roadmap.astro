@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import registry from '../data/registry.json';
+---
+<BaseLayout title="Engineering roadmap" description="An open-ended AI product engineering roadmap that moves research candidates into verified builds without an artificial product ceiling.">
+  <header class="page-hero shell"><p class="eyebrow">No artificial product ceiling</p><h1 class="display">The build <em>sequence.</em></h1><p class="lead">The 64-item field is a living research system. Implementation moves one evidence-bearing vertical slice at a time; the roadmap can expand as new signals earn a place.</p></header>
+  <section class="section shell"><div class="evidence-grid">{registry.buildSequence.map((step) => <article class="evidence-card"><span class={`tag ${step[2].includes('Real') ? 'working' : 'roadmap'}`}>{step[2]}</span><h3>{step[0]} · {step[1]}</h3><p>{step[3]}</p><span class="number">{step[0]}</span></article>)}</div></section>
+  <section class="section-tight shell status-banner"><span class="tag roadmap">Next</span><p>The MCP Agent Tool Hub follows this frontend migration: a real server and client, typed tools, scoped permissions, denial cases, audit evidence, tests, and an interactive portfolio walkthrough.</p></section>
+</BaseLayout>

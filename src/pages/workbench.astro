@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WorkbenchDemo from '../components/WorkbenchDemo';
+import reportSource from '../../evidence/evaluation-workbench-report.json';
+import fixtures from '../../apps/evaluation-workbench/data/synthetic_cases.json';
+
+const responses = new Map(fixtures.map((fixture) => [fixture.id, fixture.response]));
+const report = {
+  ...reportSource,
+  results: reportSource.results.map((result) => ({ ...result, response: responses.get(result.case_id) ?? 'Fixture response unavailable.' })),
+};
+---
+<BaseLayout title="Evaluation Workbench" description="Inspect the synthetic test cases, scores, failures, source, and evidence of the real Python Evaluation Workbench.">
+  <header class="page-hero shell"><p class="eyebrow">Working implementation · AI Reliability Studio</p><h1 class="display">Evaluation <em>Workbench.</em></h1><p class="lead">A dependency-free Python pipeline scores synthetic conversational-AI fixtures, applies a release gate, and exports JSON, CSV, and JUnit evidence. This interface makes the same decision loop explorable.</p><div class="button-row"><a class="button primary" href="https://github.com/rpandey94-creator/ai-product-studio/tree/personal-ai-pm-portfolio/apps/evaluation-workbench">Inspect source ↗</a><a class="button" href="https://github.com/rpandey94-creator/ai-product-studio/tree/personal-ai-pm-portfolio/evidence">Open generated evidence ↗</a><a class="button" href="/projects/ai-reliability-observability-studio/">Read product case</a></div></header>
+  <section class="section-tight shell"><WorkbenchDemo report={report} client:load /></section>
+  <section class="section-tight shell detail-grid"><section><h2>What is verified</h2><ul><li>Typed Python runner and four deterministic evaluator families</li><li>Eight synthetic fixtures, including intentional failure cases</li><li>Seven automated tests</li><li>JSON, CSV, and JUnit report generation</li></ul></section><section><h2>What is not claimed</h2><ul><li>No paid hosted backend</li><li>No model-as-judge integration</li><li>No real customer data or measured business result</li><li>No production traffic or team adoption</li></ul></section></section>
+</BaseLayout>
