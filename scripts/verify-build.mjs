@@ -14,7 +14,7 @@ for (const route of requiredRoutes) {
 }
 
 const home = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
-for (const claim of ['Rishav Pandey', 'AI Product Manager', '13', 'verified working implementation']) {
+for (const claim of ['Rishav Pandey', 'AI Product Manager', '13', '4', 'flagship case studies in depth', 'verified working implementation']) {
   if (!home.toLowerCase().includes(claim.toLowerCase())) throw new Error(`Homepage disclosure missing: ${claim}`);
 }
 
