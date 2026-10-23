@@ -1,4 +1,6 @@
 import { describe, expect, it } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
 import registry from '../src/data/registry.json';
 import frameworks from '../src/data/frameworks.json';
 import studio from '../src/data/studio.json';
@@ -52,6 +54,7 @@ describe('migration preservation gates', () => {
   it('documents every architecture component and blueprint', () => {
     for (const project of portfolioProjects) {
       expect(project.blueprint).toMatch(/^blueprints\//);
+      expect(fs.existsSync(path.resolve(project.blueprint!))).toBe(true);
       for (const node of project.architecture) expect(node).toMatchObject({ role: expect.any(String), technology: expect.any(String), inputs: expect.any(Array), outputs: expect.any(Array), failureModes: expect.any(Array), cost: expect.any(String), status: expect.any(String) });
     }
   });
